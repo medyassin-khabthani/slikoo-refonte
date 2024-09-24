@@ -107,17 +107,49 @@ body{
   .slikoo-button{
     width: 100%;
     background-color: #E61C4C;
-    padding: 15px 0;
+    padding: 10px 0;
     border-radius: 15px;
     border: none;
+    font-size: 14px;
     color: #fff;
   }
   .slikoo-button:hover{
     width: 100%;
     background-color: rgba(230,28,76,0.9);
-    padding: 15px 0;
+    padding: 10px 0;
     border-radius: 15px;
     border: none;
     color: #fff;
   }
+label{
+  font-size: 14px;
+}
+input[type = "text"],
+input[type = "email"],
+input[type = "password"] {
+  font-size: 14px;
+}
+select{
+  font-size: 14px;
+
+}
+.right-cta{
+  height: 100vh;
+}  
+
+.slikoo-link{
+  color: rgba(230,28,76,1);
+  text-decoration: none;
+}
+.slikoo-link:hover{
+  color: rgba(230,28,76,.9);
+}
+/* Responsive CSS */
+
+@media screen and (max-width: 991px) {
+  .right-cta{
+    height: auto;
+    margin: 2rem 0;
+  }  
+}
 
