@@ -1,0 +1,123 @@
+body{
+    font-family: 'Noto Sans',sans-serif;
+
+}
+
+.form-select:focus{
+    border-color: rgba(230, 28, 76, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(230, 28, 76, 0.6);
+    outline: 0 none;
+  }
+  .input-textarea:focus,
+  textarea:focus,
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="datetime"]:focus,
+  input[type="datetime-local"]:focus,
+  input[type="date"]:focus,
+  input[type="month"]:focus,
+  input[type="time"]:focus,
+  input[type="week"]:focus,
+  input[type="number"]:focus,
+  input[type="email"]:focus,
+  input[type="url"]:focus,
+  input[type="search"]:focus,
+  input[type="tel"]:focus,
+  input[type="color"]:focus,
+  input[type="radio"]:focus,
+  input[type="checkbox"]:focus,
+  .uneditable-input:focus {   
+    border-color: rgba(230, 28, 76, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px rgba(230, 28, 76, 0.6);
+    outline: 0 none;
+  }
+  textarea:focus{
+    border-color: rgba(230, 28, 76, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 3px rgba(230, 28, 76, 0.6);
+    outline: 0 none;
+  }
+
+.auth-background{
+    background-image: url('../images/bg1.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+}
+.overlay-background{
+    background-color: rgba(176, 42, 55, 0.75);
+}
+.signup-div{
+    background-color: #faf9f6;
+    border-radius: 45px;
+    padding: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+.right-section{
+    padding: 30px 60px;
+}
+
+.p-text{
+    font-size: 14px;
+}
+
+.user-menu {
+    overflow: hidden;
+    border-bottom: 1px solid #bdbdbd;
+  }
+  
+  .user-menu .col-6{
+    padding: 0;
+  }
+  .user-menu a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    width: 100%;
+  }
+  
+  .user-menu a:hover {
+    border-bottom: 2px solid #E61C4C;
+    color: #E61C4C!important;
+    font-weight: 500;
+
+  }
+  
+  .user-menu a.active {
+    border-bottom: 2px solid #E61C4C;
+    color: #E61C4C;
+    font-weight: 500;
+  }
+  .signup-form{
+    margin: 20px 0;
+  }
+  .password-wrapper{
+    position: relative;
+  }
+  .password-form i{
+    position:absolute;
+    right: 10px;
+    top: 12px;
+    cursor:pointer;
+    color:rgba(230, 28, 76, 0.4)
+  }
+  .slikoo-button{
+    width: 100%;
+    background-color: #E61C4C;
+    padding: 15px 0;
+    border-radius: 15px;
+    border: none;
+    color: #fff;
+  }
+  .slikoo-button:hover{
+    width: 100%;
+    background-color: rgba(230,28,76,0.9);
+    padding: 15px 0;
+    border-radius: 15px;
+    border: none;
+    color: #fff;
+  }
+

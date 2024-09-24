@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slikoo - Inscription</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+  </head>
+  <body>
+    <div class="auth-background">
+      <div class="overlay-background">
+        <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-7 right-section">
+            <div class="signup-div">
+              <div class="text-center">
+                <h3>Rejoignez-nous</h3>
+                <p class="text-secondary p-text">Lorem ipsum odor amet, consectetuer adipiscing elit. Donec lacinia gravida interdum et sodales, tempor curae mus.</p>
+              </div>
+              <div class="user-menu">
+                <div class="row">
+                  <div class="col-6">
+                    <a class="active" id="particulierButton" style="cursor: pointer;" onclick="toggleParticulier()" >Particulier</a>
+                  </div>
+                  <div class="col-6">
+                    <a id="restaurantButton" style="cursor: pointer;" onclick="toggleRestaurant()">Restaurant</a>
+                  </div>
+                </div>
+              </div>
+              <div id="signupFormParticulier" class="signup-form">
+                <form>
+                <h5>Informations personnels</h5>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="genreFormInput" class="form-label">Genre</label>
+                      <select class="form-select" aria-label="genreFormInput">
+                        <option selected>Femme</option>
+                        <option value="1">Homme</option>
+                        <option value="2">Non-binaire</option>
+                        <option value="3">Je préfére ne pas répondre</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Nom</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="John">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Prénom</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Doe">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Numéro téléphone</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="+33 123456789">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Ville</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Paris">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Code postal</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="75001">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <label class="mb-1" for="exampleFormControlTextarea1">Description du profil</label>
+                      <textarea class="form-control input-textarea" id="exampleFormControlTextarea1" rows="3" placeholder="Ecrivez ce que vous pensez..."></textarea>
+                    </div>
+                  </div>
+                  <div class="text-center mb-3">
+                    <p for="exampleFormControlInput1" class="form-label">Ajouter une image</p>
+                    <div style="cursor: pointer;">
+                    <img id="preview" src="images/input_image.png" style="border-radius:50%;height: 150px;width: 150px;object-fit: cover;object-position: center;" />
+                    <input type="file" accept="image/*" id="fileTag" style="display: none;" />
+                </div>  
+                </div>
+                </div>
+                <h5>Informations d'authentification</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Adresse électronique</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nom@example.com">
+                        </div>    
+                    </div>
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6">
+                        <div class="mb-3 password-form">
+                            <label for="exampleFormControlInput1" class="form-label" >Mot de passe</label>
+                            <div class="password-wrapper">
+                            <input type="password" id="passwordInput1" class="form-control" placeholder="*********">
+                            <i class="fa-solid fa-eye" id="togglePassword1"></i>
+                        </div>
+                        </div>    
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3 password-form">
+                            <label for="exampleFormControlInput1" class="form-label">Confirmer le mot de passe</label>
+                            <div class="password-wrapper">
+
+                            <input type="password" class="form-control" id="passwordInput2" placeholder="*********">
+                            <i class="fa-solid fa-eye" id="togglePassword2"></i>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <button id="buttonSubmit" type="submit"class="slikoo-button">Créer un compte</button>
+            </form>
+              </div>
+              <div id="signupFormRestaurant" class="signup-form">
+                <form>
+                <h5>Informations personnels</h5>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="genreFormInput" class="form-label">Genre</label>
+                      <select class="form-select" aria-label="genreFormInput">
+                        <option selected>Femme</option>
+                        <option value="1">Homme</option>
+                        <option value="2">Non-binaire</option>
+                        <option value="3">Je préfére ne pas répondre</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Nom</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="John">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Prénom</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Doe">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Numéro téléphone</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="+33 123456789">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Ville</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Paris">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Code postal</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="75001">
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <label class="mb-1" for="exampleFormControlTextarea1">Description du profil</label>
+                      <textarea class="form-control input-textarea" id="exampleFormControlTextarea1" rows="3" placeholder="Ecrivez ce que vous pensez..."></textarea>
+                    </div>
+                  </div>
+                  <div class="text-center mb-3">
+                    <p for="exampleFormControlInput1" class="form-label">Ajouter une image</p>
+                    <div style="cursor: pointer;">
+                    <img id="previewRestaurant" src="images/input_image.png" style="border-radius:50%;height: 150px;width: 150px;object-fit: cover;object-position: center;" />
+                    <input type="file" accept="image/*" id="fileTagRestaurant" style="display: none;" />
+                </div>  
+                </div>
+                </div>
+                <h5>Renseigements sur le restaurant</h5>
+                <div class="row">
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Nom du restaurant</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Restaurant ">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">SIRET</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="12345678901234">
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Adresse du restaurant</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="01 Rue exemple">
+                    </div>
+                  </div>
+                  <div class="text-center mb-3">
+                    <p for="exampleFormControlInput1" class="form-label">Ajouter des images pour votre restaurant</p>
+                    <div style="cursor: pointer;">
+                        <p class="cont">
+                        <img id="previewMultipleRestaurant" src="images/input_image_restaurant.png" style="height: 150px;width: 150px;object-fit: cover;object-position: center;" />
+                    <input multiple  accept="image/*" onchange="loadFile(event)" type="file" id="fileTagMultipleRestaurant" style="display: none;" />
+                    </p>
+                </div>  
+                </div>
+                </div>
+                <h5>Informations d'authentification</h5>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Adresse électronique</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nom@example.com">
+                        </div>    
+                    </div>
+                    <div class="col-lg-6"></div>
+                    <div class="col-lg-6">
+                        <div class="mb-3 password-form">
+                            <label for="exampleFormControlInput1" class="form-label" >Mot de passe</label>
+                            <div class="password-wrapper">
+                            <input type="password" id="passwordInput1" class="form-control" placeholder="*********">
+                            <i class="fa-solid fa-eye" id="togglePassword1"></i>
+                        </div>
+                        </div>    
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3 password-form">
+                            <label for="exampleFormControlInput1" class="form-label">Confirmer le mot de passe</label>
+                            <div class="password-wrapper">
+
+                            <input type="password" class="form-control" id="passwordInput2" placeholder="*********">
+                            <i class="fa-solid fa-eye" id="togglePassword2"></i>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <button id="buttonSubmit" type="submit"class="slikoo-button">Créer un compte</button>
+            </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5" style="padding: 0;"> 
+            <div class="d-flex flex-column justify-content-center align-items-center text-center vh-100 p-3">
+                <h4 class="text-white">Rejoignez la communauté Slikoo !</h4>
+                <p class="text-white p-text">Créez votre compte dès aujourd'hui pour partager et découvrir des expériences culinaires uniques. Que vous soyez passionné de cuisine ou simple amateur de bons repas, connectez-vous avec d'autres gourmets et organisez des moments savoureux.</p>
+                <button type="button" class="btn btn-outline-light w-75 py-2 p-text">Se connecter</button>
+            </div> 
+        </div>
+        </div>
+    </div>
+      </div>
+    </div>
+    <!-- JAVASCRIPT FILES -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        /* input file particulier */
+      $('#preview').click(function() {
+        $('#fileTag').click()
+      })
+      var fileTag = document.getElementById("fileTag"),
+        preview = document.getElementById("preview");
+      fileTag.addEventListener("change", function() {
+        changeImage(this);
+      });
+
+      function changeImage(input) {
+        var reader;
+        if (input.files && input.files[0]) {
+          reader = new FileReader();
+          reader.onload = function(e) {
+            preview.setAttribute('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+        /* input file restaurant */
+      previewRestaurant = document.querySelector("img[id='previewRestaurant']");
+      fileTagRestaurant = document.querySelector("input[id='fileTagRestaurant']")
+
+      previewRestaurant.addEventListener('click', function() {
+        fileTagRestaurant.click();
+});
+
+        fileTagRestaurant.addEventListener("change", function() {
+        changeImageRestaurant(this);
+      });
+
+      function changeImageRestaurant(input) {
+        var reader;
+        if (input.files && input.files[0]) {
+          reader = new FileReader();
+          reader.onload = function(e) {
+            previewRestaurant.setAttribute('src', e.target.result);
+          }
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+        /* toggle password */
+        const togglePassword1 = document.querySelector("#togglePassword1");
+        const password1 = document.querySelector("#passwordInput1");
+
+        togglePassword1.addEventListener("click", function () {
+            // toggle the type attribute
+            const type = password1.getAttribute("type") === "password" ? "text" : "password";
+            password1.setAttribute("type", type);
+            
+        });
+
+        const togglePassword2 = document.querySelector("#togglePassword2");
+        const password2 = document.querySelector("#passwordInput2");
+
+        togglePassword2.addEventListener("click", function () {
+            // toggle the type attribute
+            const type = password2.getAttribute("type") === "password" ? "text" : "password";
+            password2.setAttribute("type", type);
+        });
+
+        /* toggle forms */
+        const particulierContent = document 
+            .getElementById('signupFormParticulier'); 
+
+            const restaurantContent = document 
+            .getElementById('signupFormRestaurant'); 
+
+            const particulierButton = document 
+            .getElementById('particulierButton'); 
+
+            const restaurantButton = document 
+            .getElementById('restaurantButton'); 
+
+            restaurantContent.style.display = 'none';
+
+        function toggleParticulier() { 
+
+
+        restaurantButton.classList.remove("active");
+        particulierButton.classList.add("active");
+
+        particulierContent.style.display = 'block'; 
+            restaurantContent.style.display = 'none';
+
+            
+    } 
+    function toggleRestaurant() { 
+
+        particulierButton.classList.remove("active");
+        restaurantButton.classList.add("active");
+
+        restaurantContent.style.display = 'block'; 
+        particulierContent.style.display = 'none';
+
+    } 
+    /* multiple file upload */
+    previewMultipleRestaurant = document.querySelector("img[id='previewMultipleRestaurant']");
+    fileTagMultipleRestaurant = document.querySelector("input[id='fileTagMultipleRestaurant']");
+
+    previewMultipleRestaurant.addEventListener('click', function() {
+        fileTagMultipleRestaurant.click();
+});
+    var loadFile = function(event) {
+  for (let i = 0; i < event.target.files.length; i++) {
+    var image = document.createElement('img');
+    image.src = URL.createObjectURL(event.target.files[i]);
+    image.id = "output";
+    image.width = "150";
+    image.height ="150";
+    image.style.marginTop ="5px";
+    image.style.marginLeft ="5px";
+    image.style.marginRight ="5px";
+    image.style.marginBottom ="5px";
+    image.style.objectFit= "cover";
+    image.style.objectPosition= "center";
+    image.style.borderRadius = "15px";
+    document.querySelector(".cont").appendChild(image);
+  }
+};
+
+
+    </script>
+  </body>
+</html>
