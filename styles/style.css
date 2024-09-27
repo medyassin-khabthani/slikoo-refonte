@@ -2,6 +2,9 @@ body{
     font-family: 'Noto Sans',sans-serif;
 
 }
+h1,h2,h3,h4,h5,h6{
+  color:#1e1e1e;
+}
 
 .form-select:focus{
     border-color: rgba(230, 28, 76, 0.8);
@@ -104,6 +107,70 @@ body{
     cursor:pointer;
     color:rgba(230, 28, 76, 0.4)
   }
+/*   .social-form .social-icon{
+    position:absolute;
+    left: 10px;
+    top: 10px;
+    cursor:pointer;
+    color:rgba(230, 28, 76, 0.4)
+  }
+  .social-input{
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  } */
+  .password-wrapper {
+    position: relative;
+  }
+  
+  .social-form .social-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    filter: brightness(0) saturate(100%) invert(70%) sepia(4%) 
+            saturate(0%) hue-rotate(244deg) brightness(89%) contrast(86%); /* Default #b3b3b3 color */
+  }
+  
+  .social-input {
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Styles when the input is filled */
+  .password-wrapper.filled .social-input {
+    background-color: #F5D4DB;
+    border-color: #E61C4C;
+    color: #E61C4C;
+    font-weight: 500;
+  }
+  
+  .password-wrapper.filled .social-icon {
+    filter: brightness(0) saturate(100%) invert(35%) sepia(78%) 
+            saturate(2648%) hue-rotate(335deg) brightness(91%) contrast(96%); /* Filled #E61C4C color */
+  }
+  
+  .clear-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    color: #E61C4C;
+    z-index: 3;
+  }
+  
+  .password-wrapper.filled .clear-icon {
+    display: block; /* Show the clear icon when input is filled */
+  }
+  
+
   .slikoo-button{
     width: 100%;
     background-color: #E61C4C;
@@ -144,12 +211,346 @@ select{
 .slikoo-link:hover{
   color: rgba(230,28,76,.9);
 }
+
+.details-background{
+  background-image: url('../images/bg.png');
+  background-size: cover;
+  background-repeat: repeat;
+}
+.checkbox-slikoo{
+  background-color: #fff;
+  margin: 5px 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 70px;
+  border-radius: 15px;
+  border: 0.5px solid #bdbdbd;
+  display: flex;
+  align-items: center;
+  color: #616161;
+  
+}
+.checkbox-slikoo.language{
+  background-color: #fff;
+  margin: 5px 5px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15px;
+  border: 0.5px solid #bdbdbd;
+  display: flex;
+  align-items: center;
+  color: #616161;
+  
+}
+.checkbox-slikoo input{
+  margin-right: 5px;
+  
+}
+
+.checkbox-slikoo input[type="checkbox"] {
+  -webkit-appearance: none; 
+  -moz-appearance: none;
+  appearance: none;
+  width:  15px;
+  height: 15px;
+  border: 0.5px solid #bdbdbd;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox-slikoo input[type="checkbox"]:checked {
+  background-color: #E61C4C;
+  border-color: #E61C4C;
+}
+
+.checkbox-slikoo input[type="checkbox"]:checked::before {
+  content: '';
+position: absolute;
+
+  width:  13px;
+  height: 13px;
+  background-color: #E61C4C;
+  border: 2px solid #F5D4DB;
+  border-radius:3px;
+}
+
+.checkbox-slikoo.checked {
+  background-color: #F5D4DB;
+  border-color: #E61C4C;
+  color: #E61C4C;
+  font-weight: 500;
+}
+.checkbox-slikoo input[type="radio"]{
+  accent-color: #E61C4C;
+}
+.checkbox-slikoo.checked .icon {
+  filter: invert(28%) sepia(63%) saturate(7468%) hue-rotate(335deg) brightness(92%) contrast(96%);
+
+}
+
+/* PLAYGROUND */
+.custom-select{
+  position: relative;
+  width: auto;
+  }
+  .select-box{
+  background-color: #ffffff;
+  border: 1px solid #bdbdbd;
+  border-radius: 10px;
+  padding: 10px 10px;
+  cursor: pointer;
+  }
+  .selected-options {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    }
+    .tag{
+    background-color: #F5D4DB;
+    color: #E61C4C;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+      font-size: 14px;
+    padding: 12px 14px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+
+    }
+    .remove-tag{
+    margin-left: 6px;
+    cursor: pointer;
+    }
+    .arrow{
+    margin: 0 10px;
+    }
+    .fa-angle-down{
+    color: #404040;
+    font-size: 30px;
+    }
+
+    .options{
+      
+      display: none;
+      position: absolute;
+      width: 100%;
+      background-color: #ffffff;
+      border: 1px solid #ced4da;
+      border-top: none;
+      max-height: 225px;
+      overflow-y: auto;
+      z-index: 1;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      }
+      .open .options{
+      display: block;
+      }
+      .option-search-tags{
+      background-color: #ffffff;
+      border: 1px solid #ced4da;
+      padding: 0px 0px;
+      margin: 8px;
+      box-shadow: none;
+      outline: none;
+      border-radius: 15px;
+
+      }
+      .search-tags{
+        height:52px;
+        padding-left: 10px;
+        border-radius: 15px;
+        box-shadow: none;
+        outline: none;
+      width: 100%;
+      border:none;
+      outline: none;
+      font-size: 14px;
+      }
+      .clear{
+        position: absolute;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 0;
+        color: #000;
+        top: 26px;
+        left: auto;
+        right: 15px;
+        }
+        .option{
+        padding: 12px;
+        cursor: pointer;
+        }
+        .option.active {
+        color: #000;
+        background-color: #f2f2f2;
+        border-bottom: 1px solid #eaeaea;
+        }
+        .tag:hover,
+        .option:hover{
+        background-color: #eaeaea;
+        }
+        .no-result-message{
+        padding: 0px 0px 12px 12px;
+        }
+        .error{
+          color: #ff1a2a;
+          margin-top: 8px;
+          }
+          .btn_submit{
+          padding: 17px 24px;
+          background-color: ☐ #4caf50;
+          color: #ffffff;
+          border: none;
+          cursor: pointer;
+          font-size: 16px;
+          }
+          .btn_submit:hover{
+          background-color: #4caf50;
+          }
+          .placeholder{
+            background-color: transparent!important;
+            font-size: 14px;
+            cursor:pointer;
+          }
+          .fa-circle-xmark{
+            margin-left: 10px;
+            color: rgba(230, 28, 76, 0.4);
+          }
+          
+/* /PLAYGROUND */
 /* Responsive CSS */
 
 @media screen and (max-width: 991px) {
   .right-cta{
     height: auto;
     margin: 2rem 0;
-  }  
+  }
+  .right-section{
+    padding: 30px 0px;
+}  
+.circular-progress {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 0%;
+  --size: 100px;
+  --half-size: calc(var(--size) / 2);
+  --stroke-width: 10px;
+  --radius: calc((var(--size) - var(--stroke-width)) / 2);
+  --circumference: calc(var(--radius) * pi * 2);
+  --dash: calc((var(--progress) * var(--circumference)) / 100);
+  animation: progress-animation 5s linear 0s 1 forwards;
+  background-color: #eaeaea;
 }
 
+.circular-progress circle {
+  cx: var(--half-size);
+  cy: var(--half-size);
+  r: var(--radius);
+  stroke-width: var(--stroke-width);
+  fill: none;
+  stroke-linecap: round;
+}
+
+.circular-progress circle.bg {
+  stroke: #ddd;
+}
+
+.circular-progress circle.fg {
+  transform: rotate(-90deg);
+  transform-origin: var(--half-size) var(--half-size);
+  stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+  transition: stroke-dasharray 0.3s linear 0s;
+  stroke: #16ABDB;
+}
+.progress-bar-div {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  
+}
+  /* Center the percentage text within the progress bar */
+  .progress-bar-span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 500;
+    color: #1e1e1e!important; /* Adjust the text color as needed */
+  }
+}
+
+.circular-progress {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 50%;
+  --size: 100px;
+  --half-size: calc(var(--size) / 2);
+  --stroke-width: 10px;
+  --radius: calc((var(--size) - var(--stroke-width)) / 2);
+  --circumference: calc(var(--radius) * pi * 2);
+  --dash: calc((var(--progress) * var(--circumference)) / 100);
+  animation: progress-animation 5s linear 0s 1 forwards;
+}
+
+.circular-progress circle {
+  cx: var(--half-size);
+  cy: var(--half-size);
+  r: var(--radius);
+  stroke-width: var(--stroke-width);
+  fill: none;
+  stroke-linecap: round;
+}
+
+.circular-progress circle.bg {
+  stroke: #ddd;
+}
+
+.circular-progress circle.fg {
+  transform: rotate(-90deg);
+  transform-origin: var(--half-size) var(--half-size);
+  stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+  transition: stroke-dasharray 0.3s linear 0s;
+  stroke: #16ABDB;
+}
+
+/* @property --progress {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+@keyframes progress-animation {
+  from {
+    --progress: 0;
+  }
+  to {
+    --progress: 100;
+  }
+} */
+.progress-bar-div {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  
+}
+
+/* Center the percentage text within the progress bar */
+.progress-bar-span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
+  color: #fff; /* Adjust the text color as needed */
+}

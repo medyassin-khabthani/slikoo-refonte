@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slikoo - Inscription</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+  </head>
+  <body>
+    <div id="constraintFixed" class="constraint-fixed">
+
+  
+    <div class="details-background">
+      <div class="overlay-background">
+        <div class="container-fluid container-md">
+          <div class="right-section">
+            <div class="signup-div">
+              <div class="text-center">
+                <h3>Profil avancé</h3>
+                <p class="text-secondary p-text">Lorem ipsum odor amet, consectetuer adipiscing elit. Donec lacinia gravida interdum et sodales, tempor curae mus.</p>
+              </div>
+              <div id="signupFormParticulier" class="signup-form">
+                <form>
+                <div class="my-3 section" data-section-id="1">
+                  <h5>Quels types de cuisine préférez-vous ?</h5>
+                  <div class="d-flex flex-row flex-wrap">
+                    <div class="checkbox-slikoo">
+                      <input type="checkbox" id="Italienne" name="Italienne" onchange="toggleBackground(this)" />
+                      <label for="Italienne">Italienne</label>
+                    </div>
+                  
+                    <div class="checkbox-slikoo">
+                      <input type="checkbox" id="Asiatique" name="Asiatique" onchange="toggleBackground(this)" />
+                      <label for="Asiatique">Asiatique</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="checkbox" id="Vegetarienne" name="Végetarienne" onchange="toggleBackground(this)" />
+                      <label for="Vegetarienne">Végetarienne</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="checkbox" id="noResponse" name="Je préfère ne pas répondre" onchange="toggleBackground(this)" />
+                      <label for="noResponse">Je préfère ne pas répondre</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="2">
+                  <h5>Quel est votre âge ?</h5>
+                  <div class="d-flex flex-row flex-wrap">
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="18" name="age" value="18 - 24" onchange="toggleRadioBackground(this)" />
+                      <label for="18">18 - 24</label>
+                    </div>
+                  
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="25" name="age" value="25 - 34" onchange="toggleRadioBackground(this)" />
+                      <label for="25">25 - 34</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="35" name="age" value="35 - 44" onchange="toggleRadioBackground(this)" />
+                      <label for="35">35 - 44</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="45" name="age" value="45 - 54" onchange="toggleRadioBackground(this)" />
+                      <label for="45">45 - 54</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="55" name="age" value="55+" onchange="toggleRadioBackground(this)" />
+                      <label for="55">55+</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="3">
+                  <h5>Êtes-vous fumeur ?</h5>
+                  <div class="d-flex flex-row flex-wrap">
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="ouiSmoker" name="fumeur" value="Oui" onchange="toggleRadioBackground(this)" />
+                      <label for="ouiSmoker" class="d-flex align-items-center"><img src="images/smoker.svg" class="mx-1 icon"/>Oui</label>
+                    </div>
+                  
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="halfSmoker" name="fumeur" value="Occasionellement" onchange="toggleRadioBackground(this)" />
+                      <label for="halfSmoker" class="d-flex align-items-center"><img src="images/half-smoker.svg" class="mx-1 icon"/>Occasionellement</label>
+                    </div>
+
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="nonSmoker" name="fumeur" value="Non" onchange="toggleRadioBackground(this)" />
+                      <label for="nonSmoker" class="d-flex align-items-center"><img src="images/non-smoker.svg" class="mx-1 icon"/>Non</label>
+                    </div>
+
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="vapeSmoker" name="fumeur" value="Non, je vapote" onchange="toggleRadioBackground(this)" />
+                      <label for="vapeSmoker" class="d-flex align-items-center"><img src="images/vape-smoker.svg" class="mx-1 icon"/>Non, je vapote</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="4">
+                  <h5>Buvez-vous de l'alcool ?</h5>
+                  <div class="d-flex flex-row flex-wrap">
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="drink" name="alcool" value="Oui" onchange="toggleRadioBackground(this)" />
+                      <label for="drink" class="d-flex align-items-center"><img src="images/drink.svg" class="mx-1 icon"/>Oui</label>
+                    </div>
+                  
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="halfDrink" name="alcool" value="Occasionellement" onchange="toggleRadioBackground(this)" />
+                      <label for="halfDrink" class="d-flex align-items-center"><img src="images/half-drink.svg" class="mx-1 icon"/>Occasionellement</label>
+                    </div>
+
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="noDrink" name="alcool" value="Non" onchange="toggleRadioBackground(this)" />
+                      <label for="noDrink" class="d-flex align-items-center"><img src="images/no-drink.svg" class="mx-1 icon"/>Non</label>
+                    </div>
+                  </div>
+                </div>
+                <!--PLAYGROUND-->
+                <div class="my-3 section" data-section-id="5">
+                  
+                  <div class="custom-select-container" data-name="allergies">
+                    <h5>Avez vous des allergies alimentaires ?</h5>
+
+                    <div class="row">
+                      <div class="col-lg-6">
+                    <div class="custom-select">
+                      <div class="select-box">
+                        <span class="placeholder" >Arachides, Gluten, Kiwi...</span>
+
+                        <input type="text" class="tags_input" name="tags" hidden />
+
+                      </div>
+                      <div class="options">
+                        <div class="option-search-tags">
+                          <input type="text" class="search-tags" placeholder="Rechercher des allergies" />
+                          <button type="button" class="clear"><i class="fa fa-close"></i></button>
+                        </div>
+                        <div class="option all-tags" data-value="All">Choisir tout</div>
+ <div class="option" data-value="Aucune">Aucune</div>
+<div class="option" data-value="Arachides">Arachides</div>
+<div class="option" data-value="Noix (amandes, noix de cajou, noisettes, noix du Brésil, pistaches, macadamias, etc.)">Noix (amandes, noix de cajou, noisettes, noix du Brésil, pistaches, macadamias, etc.)</div>
+<div class="option" data-value="Graines de lin">Graines de lin</div>
+<div class="option" data-value="Graines de moutarde">Graines de moutarde</div>
+<div class="option" data-value="Graines de pavot">Graines de pavot</div>
+<div class="option" data-value="Graines de sésame">Graines de sésame</div>
+<div class="option" data-value="Soja">Soja</div>
+<div class="option" data-value="Lait et produits laitiers">Lait et produits laitiers</div>
+<div class="option" data-value="Œufs">Œufs</div>
+<div class="option" data-value="Blé">Blé</div>
+<div class="option" data-value="Gluten (triticale, seigle, orge)">Gluten (triticale, seigle, orge)</div>
+<div class="option" data-value="Céleri">Céleri</div>
+<div class="option" data-value="Sulfites">Sulfites</div>
+<div class="option" data-value="Poissons">Poissons</div>
+<div class="option" data-value="Crustacés (crevettes, crabes, homards, langoustines, etc.)">Crustacés (crevettes, crabes, homards, langoustines, etc.)</div>
+<div class="option" data-value="Mollusques (moules, huîtres, palourdes, coques, etc.)">Mollusques (moules, huîtres, palourdes, coques, etc.)</div>
+<div class="option" data-value="Fruits de mer">Fruits de mer</div>
+<div class="option" data-value="Fruits à coque (noix, noisettes, amandes, pistaches, etc.)">Fruits à coque (noix, noisettes, amandes, pistaches, etc.)</div>
+<div class="option" data-value="Lupin">Lupin</div>
+<div class="option" data-value="Kiwi">Kiwi</div>
+<div class="option" data-value="Ananas">Ananas</div>
+<div class="option" data-value="Bananes">Bananes</div>
+<div class="option" data-value="Avocats">Avocats</div>
+<div class="option" data-value="Tomates">Tomates</div>
+<div class="option" data-value="Pommes de terre">Pommes de terre</div>
+<div class="option" data-value="Poivrons">Poivrons</div>
+<div class="option" data-value="Melons">Melons</div>
+<div class="option" data-value="Raisins secs">Raisins secs</div>
+<div class="option" data-value="Papaye">Papaye</div>
+<div class="option" data-value="Mangue">Mangue</div>
+<div class="option" data-value="Dattes">Dattes</div>
+<div class="option" data-value="Baies (fraises, framboises, myrtilles, mûres, etc.)">Baies (fraises, framboises, myrtilles, mûres, etc.)</div>
+<div class="option" data-value="Agrumes (oranges, citrons, pamplemousses, etc.)">Agrumes (oranges, citrons, pamplemousses, etc.)</div>
+<div class="option" data-value="Épices (cumin, coriandre, cannelle, etc.)">Épices (cumin, coriandre, cannelle, etc.)</div>
+
+                        <div class="no-result-message" style="display:none;">Aucun resultat trouvé</div>
+                      </div>
+                      <span class="tag_error_msg error"></span>
+                    </div>
+                  </div>
+                  </div>
+                    <!-- Moved selected-options div here -->
+                    <div class="selected-options">
+                      <!-- Selected tags will be displayed here -->
+                    </div>
+                  </div>
+                </div>
+                  <!-- Second Custom Select -->
+                  <div class="my-3 section" data-section-id="6">
+
+                  <div class="custom-select-container" data-name="interet">
+                    <h5>Quelles sont vos centres d’intérêt ?</h5>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="custom-select">
+                          <div class="select-box">
+                            <span class="placeholder">Sports, Musique, Voyage...</span>
+                            <input type="text" class="tags_input" name="tags2" hidden />
+                          </div>
+                          <div class="options">
+                            <div class="option-search-tags">
+                              <input type="text" class="search-tags" placeholder="Search options..." />
+                              <button type="button" class="clear"><i class="fa fa-close"></i></button>
+                            </div>
+                            <div class="option all-tags" data-value="All">Choisir tout</div>
+                            <!-- Add your options here -->
+                            <div class="option" data-value="Sports : football, basketball, tennis, golf, etc.">Sports : football, basketball, tennis, golf, etc.</div>
+                            <div class="option" data-value="Musique : écouter de la musique, jouer un instrument de musique, chanter, assister à des concerts, etc.">Musique : écouter de la musique, jouer un instrument de musique, chanter, assister à des concerts, etc.</div>
+                            <div class="option" data-value="Voyage : découvrir de nouveaux endroits, explorer différentes cultures, apprendre de nouvelles langues, etc.">Voyage : découvrir de nouveaux endroits, explorer différentes cultures, apprendre de nouvelles langues, etc.</div>
+                            <div class="option" data-value="Art : peinture, sculpture, dessin, photographie, etc.">Art : peinture, sculpture, dessin, photographie, etc.</div>
+                            <div class="option" data-value="Lecture : lire des romans, des poèmes, des magazines, des bandes dessinées, etc.">Lecture : lire des romans, des poèmes, des magazines, des bandes dessinées, etc.</div>
+                            <div class="option" data-value="Cuisine : préparer de nouveaux plats, apprendre de nouvelles recettes, découvrir de nouvelles saveurs, etc.">Cuisine : préparer de nouveaux plats, apprendre de nouvelles recettes, découvrir de nouvelles saveurs, etc.</div>
+                            <div class="option" data-value="Technologie : jouer à des jeux vidéo, utiliser des gadgets électroniques, programmer, etc.">Technologie : jouer à des jeux vidéo, utiliser des gadgets électroniques, programmer, etc.</div>
+                            <div class="option" data-value="Nature : randonnée, camping, observation de la faune et de la flore, etc.">Nature : randonnée, camping, observation de la faune et de la flore, etc.</div>
+                            <div class="option" data-value="Activités manuelles : bricolage, tricot, couture, poterie, etc.">Activités manuelles : bricolage, tricot, couture, poterie, etc.</div>
+                            <div class="option" data-value="Sciences : astronomie, physique, biologie, chimie, etc.">Sciences : astronomie, physique, biologie, chimie, etc.</div>
+                            <div class="option" data-value="Monde des affaires : entrepreneuriat, économie, gestion de projet, financement, etc.">Monde des affaires : entrepreneuriat, économie, gestion de projet, financement, etc.</div>
+                            <div class="option" data-value="Politique : actualité, etc.">Politique : actualité, etc.</div>
+                            <div class="option" data-value="Autre">Autre</div>
+                            
+                            <div class="no-result-message" style="display:none;">No results found</div>
+                          </div>
+                          <span class="tag_error_msg error"></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="selected-options">
+                      <!-- Selected tags will be displayed here -->
+                    </div>
+                  </div>
+                  <!--
+                  <input type="button" class="btn_submit" value="Submit" />
+                  -->
+                </div>
+
+                <!--/PLAYGROUND-->
+
+                <div class="my-3 section" data-section-id="7">
+                  <h5>Quelle(s) langue(s) parlez-vous ?</h5>
+                  <div class="d-flex flex-row flex-wrap">
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Allemand" name="Allemand" onchange="toggleBackground(this)" />
+                      <label for="Allemand" class="d-flex align-items-center"><img src="images/emojione_flag-for-germany.svg" class="mx-1"/>Allemand</label>
+                    </div>
+                  
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Anglais" name="Anglais" onchange="toggleBackground(this)" />
+                      <label for="Anglais" class="d-flex align-items-center"><img src="images/emojione_flag-for-united-kingdom.svg" class="mx-1"/>Anglais</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Armenien" name="Arménien" onchange="toggleBackground(this)" />
+                      <label for="Armenien" class="d-flex align-items-center"><img src="images/emojione_flag-for-armenia.svg" class="mx-1"/>Arménien</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Arabe" name="Arabe" onchange="toggleBackground(this)" />
+                      <label for="Arabe" class="d-flex align-items-center"><img src="images/emojione_flag-for-saudi-arabia.svg" class="mx-1"/>Arabe</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Chinois" name="Chinois" onchange="toggleBackground(this)" />
+                      <label for="Chinois" class="d-flex align-items-center"><img src="images/emojione_flag-for-china.svg" class="mx-1"/>Chinois</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Coreen" name="Coréen" onchange="toggleBackground(this)" />
+                      <label for="Coreen" class="d-flex align-items-center"><img src="images/emojione_flag-for-south-korea.svg" class="mx-1"/>Coréen</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Espagnol" name="Espagnol" onchange="toggleBackground(this)" />
+                      <label for="Espagnol" class="d-flex align-items-center"><img src="images/emojione_flag-for-spain.svg" class="mx-1"/>Espagnol</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Finnois" name="Finnois" onchange="toggleBackground(this)" />
+                      <label for="Finnois" class="d-flex align-items-center"><img src="images/emojione_flag-for-finland.svg" class="mx-1"/>Finnois</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Francais" name="Français" onchange="toggleBackground(this)" />
+                      <label for="Francais" class="d-flex align-items-center"><img src="images/emojione_flag-for-france.svg" class="mx-1"/>Français</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Grec" name="Grec" onchange="toggleBackground(this)" />
+                      <label for="Grec" class="d-flex align-items-center"><img src="images/emojione_flag-for-greece.svg" class="mx-1"/>Grec</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="hindi" name="hindi" onchange="toggleBackground(this)" />
+                      <label for="hindi" class="d-flex align-items-center"><img src="images/emojione_flag-for-india.svg" class="mx-1"/>hindi</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Italien" name="Italien" onchange="toggleBackground(this)" />
+                      <label for="Italien" class="d-flex align-items-center"><img src="images/emojione_flag-for-italy.svg" class="mx-1"/>Italien</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Japonais" name="Japonais" onchange="toggleBackground(this)" />
+                      <label for="Japonais" class="d-flex align-items-center"><img src="images/emojione_flag-for-japan.svg" class="mx-1"/>Japonais</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Mandarin" name="Mandarin" onchange="toggleBackground(this)" />
+                      <label for="Mandarin" class="d-flex align-items-center"><img src="images/emojione_flag-for-china-1.svg" class="mx-1"/>Mandarin</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Neerlandais" name="Néerlandais" onchange="toggleBackground(this)" />
+                      <label for="Neerlandais" class="d-flex align-items-center"><img src="images/emojione_flag-for-netherlands.svg" class="mx-1"/>Néerlandais</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Norvegien" name="Norvégien" onchange="toggleBackground(this)" />
+                      <label for="Norvegien" class="d-flex align-items-center"><img src="images/emojione_flag-for-norway.svg" class="mx-1"/>Norvégien</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Persan" name="Persan" onchange="toggleBackground(this)" />
+                      <label for="Persan" class="d-flex align-items-center"><img src="images/emojione_flag-for-iran.svg" class="mx-1"/>Persan</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Polonais" name="Polonais" onchange="toggleBackground(this)" />
+                      <label for="Polonais" class="d-flex align-items-center"><img src="images/emojione_flag-for-poland.svg" class="mx-1"/>Polonais</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Porutgais" name="Porutgais" onchange="toggleBackground(this)" />
+                      <label for="Porutgais" class="d-flex align-items-center"><img src="images/emojione_flag-for-portugal.svg" class="mx-1"/>Porutgais</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Roumain" name="Roumain" onchange="toggleBackground(this)" />
+                      <label for="Roumain" class="d-flex align-items-center"><img src="images/emojione_flag-for-romania.svg" class="mx-1"/>Roumain</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Russe" name="Russe" onchange="toggleBackground(this)" />
+                      <label for="Russe" class="d-flex align-items-center"><img src="images/emojione_flag-for-russia.svg" class="mx-1"/>Russe</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="suedois" name="suédois" onchange="toggleBackground(this)" />
+                      <label for="suedois" class="d-flex align-items-center"><img src="images/emojione_flag-for-sweden.svg" class="mx-1"/>suédois</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Thai" name="Thaï" onchange="toggleBackground(this)" />
+                      <label for="Thai" class="d-flex align-items-center"><img src="images/emojione_flag-for-thailand.svg" class="mx-1"/>Thaï</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Turc" name="Turc" onchange="toggleBackground(this)" />
+                      <label for="Turc" class="d-flex align-items-center"><img src="images/emojione_flag-for-turkey.svg" class="mx-1"/>Turc</label>
+                    </div>
+                    <div class="checkbox-slikoo language">
+                      <input type="checkbox" id="Vietnamien" name="Vietnamien" onchange="toggleBackground(this)" />
+                      <label for="Vietnamien" class="d-flex align-items-center"><img src="images/emojione_flag-for-vietnam.svg" class="mx-1"/>Vietnamien</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="8">
+                  <h5>Quel genre recherchez-vous ?</h5>
+                  <div class="d-flex flex-row flex-wrap">
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Femme" name="gender" value="Femme" onchange="toggleRadioBackground(this)" />
+                      <label for="Femme" class="d-flex align-items-center"><img src="images/female.svg" class="mx-1 icon"/>Femme</label>
+                    </div>
+                  
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Homme" name="gender" value="Homme" onchange="toggleRadioBackground(this)" />
+                      <label for="Homme" class="d-flex align-items-center"><img src="images/male.svg" class="mx-1 icon"/>Homme</label>
+                    </div>
+
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="NonBinaire" name="gender" value="Non-binaire" onchange="toggleRadioBackground(this)" />
+                      <label for="NonBinaire" class="d-flex align-items-center"><img src="images/non-binary.svg" class="mx-1 icon"/>Non-binaire</label>
+                    </div>
+
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Ouvert" name="gender" value="Ouvert" onchange="toggleRadioBackground(this)" />
+                      <label for="Ouvert" class="d-flex align-items-center"><img src="images/male-female.svg" class="mx-1 icon"/>Ouvert</label>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="9">
+                  <h5>Vous cherchez plutôt quoi ?</h5>
+                  <div class="d-flex flex-row flex-wrap">
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Rencontre" name="search" value="Rencontre" onchange="toggleRadioBackground(this)" />
+                      <label for="Rencontre" class="d-flex align-items-center"><img src="images/people.svg" class="mx-1 icon"/>Rencontre</label>
+                    </div>
+                  
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Amitie" name="search" value="Amitié" onchange="toggleRadioBackground(this)" />
+                      <label for="Amitie" class="d-flex align-items-center"><img src="images/smile.svg" class="mx-1 icon"/>Amitié</label>
+                    </div>
+
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Date" name="search" value="Date" onchange="toggleRadioBackground(this)" />
+                      <label for="Date" class="d-flex align-items-center"><img src="images/love.svg" class="mx-1 icon"/>Date</label>
+                    </div>
+
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="professionel" name="search" value="Réseau professionel" onchange="toggleRadioBackground(this)" />
+                      <label for="professionel" class="d-flex align-items-center"><img src="images/professional.svg" class="mx-1 icon"/>Réseau professionel</label>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="10">
+                  <h5>Quels réseaux sociaux utilisez-vous ?</h5>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="mb-3 social-form">
+                      <label for="facebookInput" class="form-label">Lien Facebook</label>
+                      <div class="password-wrapper">
+                        <img src="images/facebook.svg" class="social-icon" />
+                        <input type="text" id="facebookInput" class="form-control social-input" placeholder="www.facebook.com/votre-lien">
+                        <span class="clear-icon" data-input="facebookInput"><i class="fa-solid fa-circle-xmark"></i></span>
+                      </div>
+                      
+                    </div>    
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="mb-3 social-form">
+                      <label for="instagramInput" class="form-label">Lien Instagram</label>
+                      <div class="password-wrapper">
+                        <img src="images/instagram.svg" class="social-icon" />
+                        <input type="text" id="instagramInput" class="form-control social-input" placeholder="www.instagram.com/votre-lien">
+                        <span class="clear-icon" data-input="instagramInput"><i class="fa-solid fa-circle-xmark"></i></span>
+                      </div>
+                    </div>    
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="mb-3 social-form">
+                      <label for="twitterInput" class="form-label">Lien Twitter</label>
+                      <div class="password-wrapper">
+                        <img src="images/twitter.svg" class="social-icon" />
+                        <input type="text" id="twitterInput" class="form-control social-input" placeholder="www.twitter.com/votre-lien">
+                        <span class="clear-icon" data-input="twitterInput"><i class="fa-solid fa-circle-xmark"></i></span>
+                      </div>
+                    </div>    
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="mb-3 social-form">
+                      <label for="linkedinInput" class="form-label">Lien Linkedin</label>
+                      <div class="password-wrapper">
+                        <img src="images/linkedin.svg" class="social-icon" />
+                        <input type="text" id="linkedinInput" class="form-control social-input" placeholder="www.linkedin.com/votre-lien">
+                        <span class="clear-icon" data-input="linkedinInput"><i class="fa-solid fa-circle-xmark"></i></span>
+                      </div>
+                    </div>     
+                  </div>
+                </div>
+                
+                
+                </div>
+                <button id="buttonSubmit" type="submit"class="slikoo-button">Soumettre</button>
+            </form>
+              </div>
+            </div>
+          </div>
+    </div>
+      </div>
+    </div>
+
+      <!-- Progress Bar Div -->
+      <div id="progressBar"class="progress-bar-div">
+        <span class="progress-bar-span">50%</span>
+        <svg width="100" height="100" viewBox="0 0 100 100" class="circular-progress">
+          <circle class="bg"></circle>
+          <circle class="fg"></circle>
+        </svg>
+      </div>
+    </div>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // **Function Definitions**
+
+    //Tracking Scroll Progress Bar
+    window.onscroll = function() {
+      var constraintFixed = document.getElementById("constraintFixed");
+      var progressBar = document.getElementById("progressBar");
+    const viewportHeight = window.innerHeight;
+    constraintFixedHeight = constraintFixed.offsetHeight ;
+
+    if(window.pageYOffset + viewportHeight > constraintFixedHeight + 80){
+      progressBar.style.visibility = "hidden";
+    }else{
+      progressBar.style.visibility = "visible";
+
+    }
+      };
+
+
+
+    // Toggle background for checkboxes
+    function toggleBackground(checkbox) {
+      const container = checkbox.parentElement;
+      if (checkbox.checked) {
+        container.classList.add('checked');
+      } else {
+        container.classList.remove('checked');
+      }
+    }
+
+    // Toggle background for radio buttons
+    function toggleRadioBackground(radio) {
+      // Get all radio buttons with the same name
+      const allRadios = document.querySelectorAll(`input[name="${radio.name}"]`);
+
+      // Loop through all radios and remove the 'checked' class from their containers
+      allRadios.forEach((r) => {
+        const container = r.parentElement;
+        container.classList.remove('checked');
+      });
+
+      // Add the 'checked' class to the container of the selected radio
+      const selectedContainer = radio.parentElement;
+      if (radio.checked) {
+        selectedContainer.classList.add('checked');
+      }
+    }
+
+    // **Progress Bar and Form Completion Tracking**
+
+    // Object to track the completion status of each section
+    const formCompletion = {
+      totalSections: 10,
+      sectionsCompleted: {
+        typesCuisine: false,
+        age: false,
+        fumeur: false,
+        alcool: false,
+        allergiesAlimentaires: false,
+        centresInteret: false,
+        langues: false,
+        genreRecherche: false,
+        vousCherchez: false,
+        socialMedia: false,
+      },
+    };
+
+    // Function to update the progress bar
+    function updateProgressBar() {
+      const completedSections = Object.values(formCompletion.sectionsCompleted).filter(Boolean).length;
+      const percentage = Math.round((completedSections / formCompletion.totalSections) * 100);
+
+      // Update the CSS variable --progress on the .circular-progress element
+      const circularProgress = document.querySelector('.circular-progress');
+      if (circularProgress) {
+        circularProgress.style.setProperty('--progress', percentage);
+      }
+
+      // Update the percentage text
+      const progressBarSpan = document.querySelector('.progress-bar-span');
+      if (progressBarSpan) {
+        progressBarSpan.textContent = percentage + '%';
+      }
+    }
+
+    // **Section Check Functions and Event Listeners**
+
+    // 1. Check 'Types de cuisine' section
+    function checkTypesCuisine() {
+      const checkboxes = document.querySelectorAll(
+        'input[name="Italienne"], input[name="Asiatique"], input[name="Végetarienne"], input[name="Je préfère ne pas répondre"]'
+      );
+      const isChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
+      formCompletion.sectionsCompleted.typesCuisine = isChecked;
+      updateProgressBar();
+    }
+    const typesCuisineCheckboxes = document.querySelectorAll(
+      'input[name="Italienne"], input[name="Asiatique"], input[name="Végetarienne"], input[name="Je préfère ne pas répondre"]'
+    );
+    typesCuisineCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', () => {
+        toggleBackground(checkbox);
+        checkTypesCuisine();
+      });
+    });
+
+    // 2. Check 'Âge' section
+    function checkAge() {
+      const radios = document.querySelectorAll('input[name="age"]');
+      const isChecked = Array.from(radios).some((radio) => radio.checked);
+      formCompletion.sectionsCompleted.age = isChecked;
+      updateProgressBar();
+    }
+    const ageRadios = document.querySelectorAll('input[name="age"]');
+    ageRadios.forEach((radio) => {
+      radio.addEventListener('change', () => {
+        toggleRadioBackground(radio);
+        checkAge();
+      });
+    });
+
+    // 3. Check 'Fumeur' section
+    function checkFumeur() {
+      const radios = document.querySelectorAll('input[name="fumeur"]');
+      const isChecked = Array.from(radios).some((radio) => radio.checked);
+      formCompletion.sectionsCompleted.fumeur = isChecked;
+      updateProgressBar();
+    }
+    const fumeurRadios = document.querySelectorAll('input[name="fumeur"]');
+    fumeurRadios.forEach((radio) => {
+      radio.addEventListener('change', () => {
+        toggleRadioBackground(radio);
+        checkFumeur();
+      });
+    });
+
+    // 4. Check 'Alcool' section
+    function checkAlcool() {
+      const radios = document.querySelectorAll('input[name="alcool"]');
+      const isChecked = Array.from(radios).some((radio) => radio.checked);
+      formCompletion.sectionsCompleted.alcool = isChecked;
+      updateProgressBar();
+    }
+    const alcoolRadios = document.querySelectorAll('input[name="alcool"]');
+    alcoolRadios.forEach((radio) => {
+      radio.addEventListener('change', () => {
+        toggleRadioBackground(radio);
+        checkAlcool();
+      });
+    });
+
+    // 5. Check 'Allergies alimentaires' section
+    function checkAllergiesAlimentaires() {
+      const tagsInput = document.querySelector('.custom-select-container[data-name="allergies"] .tags_input');
+      const value = tagsInput ? tagsInput.value.trim() : '';
+      formCompletion.sectionsCompleted.allergiesAlimentaires = value !== '';
+      updateProgressBar();
+    }
+
+    // 6. Check 'Centres d’intérêt' section
+    function checkCentresInteret() {
+      const tagsInput = document.querySelector('.custom-select-container[data-name="interet"] .tags_input');
+      const value = tagsInput ? tagsInput.value.trim() : '';
+      formCompletion.sectionsCompleted.centresInteret = value !== '';
+      updateProgressBar();
+    }
+
+    // **Custom Multi-Select Components**
+
+    const customSelectContainers = document.querySelectorAll('.custom-select-container');
+    customSelectContainers.forEach(function (container, index) {
+      const selectName = container.getAttribute('data-name') || 'Select ' + (index + 1);
+
+      const customSelect = container.querySelector('.custom-select');
+      const selectedOptionsDiv = container.querySelector('.selected-options');
+      const searchInput = customSelect.querySelector('.search-tags');
+      const optionsContainer = customSelect.querySelector('.options');
+      const noResultMessage = customSelect.querySelector('.no-result-message');
+      const options = customSelect.querySelectorAll('.option');
+      const allTagsOption = customSelect.querySelector('.option.all-tags');
+      const aucuneOption = customSelect.querySelector('.option[data-value="Aucune"]');
+      const clearButton = customSelect.querySelector('.clear');
+      const selectBox = customSelect.querySelector('.select-box');
+      const tagsInput = customSelect.querySelector('.tags_input');
+      const tagErrorMsg = customSelect.querySelector('.tag_error_msg');
+
+      // Function to update selected options
+      function updateSelectedOptions() {
+        const selectedOptions = Array.from(customSelect.querySelectorAll('.option.active'))
+          .filter((option) => !option.classList.contains('all-tags'))
+          .map(function (option) {
+            return {
+              value: option.getAttribute('data-value'),
+              text: option.textContent.trim(),
+            };
+          });
+
+        const selectedValues = selectedOptions.map(function (option) {
+          return option.value;
+        });
+
+        tagsInput.value = selectedValues.join(', ');
+        let tagsHTML = '';
+
+        if (selectedOptions.length === 0) {
+          tagsHTML = '<span class="placeholder">Aucune sélection</span>';
+        } else {
+          const maxTagsToShow = 4;
+          let additionalTagsCount = 0;
+
+          selectedOptions.forEach(function (option, index) {
+            if (index < maxTagsToShow) {
+              // Truncate the tag text if it exceeds 50 characters
+              let displayText = option.text;
+              if (displayText.length > 50) {
+                displayText = displayText.substring(0, 50) + '...';
+              }
+
+              tagsHTML +=
+                '<span class="tag">' +
+                displayText +
+                '<span class="remove-tag" data-value="' +
+                option.value +
+                '"><i class="fa-solid fa-circle-xmark"></i></span></span>';
+            } else {
+              additionalTagsCount++;
+            }
+          });
+
+          if (additionalTagsCount > 0) {
+            tagsHTML += '<span class="tag">+' + additionalTagsCount + '</span>';
+          }
+        }
+        selectedOptionsDiv.innerHTML = tagsHTML;
+
+        // Call the appropriate check function based on selectName
+        if (selectName === 'allergies') {
+          checkAllergiesAlimentaires();
+        } else if (selectName === 'interet') {
+          checkCentresInteret();
+        }
+
+        // Log the selected values each time options are updated
+        console.log('Selected values for', selectName + ':', selectedValues);
+      }
+
+      // Event listeners for custom select
+      // Handle the selection of "Select All" or "Choisir tout"
+      allTagsOption.addEventListener('click', function () {
+        const isActive = allTagsOption.classList.contains('active');
+
+        options.forEach(function (option) {
+          if (option !== allTagsOption) {
+            option.classList.toggle('active', !isActive);
+          }
+        });
+        updateSelectedOptions();
+      });
+
+      // Event listener for clearing search input
+      clearButton.addEventListener('click', function () {
+        searchInput.value = '';
+        options.forEach(function (option) {
+          option.style.display = 'block';
+        });
+        noResultMessage.style.display = 'none';
+      });
+
+      // Search functionality
+      searchInput.addEventListener('input', function () {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        options.forEach(function (option) {
+          const optionText = option.textContent.trim().toLowerCase();
+          const shouldShow = optionText.includes(searchTerm);
+          option.style.display = shouldShow ? 'block' : 'none';
+        });
+
+        const anyOptionsMatch = Array.from(options).some((option) => option.style.display === 'block');
+        noResultMessage.style.display = anyOptionsMatch ? 'none' : 'block';
+        if (searchTerm) {
+          optionsContainer.classList.add('option-search-active');
+        } else {
+          optionsContainer.classList.remove('option-search-active');
+        }
+      });
+
+      // Event listener for selecting options
+      options.forEach(function (option) {
+        option.addEventListener('click', function () {
+          if (aucuneOption && option === aucuneOption) {
+            // If "Aucune" is selected, deselect all other options
+            options.forEach(function (opt) {
+              if (opt !== aucuneOption) {
+                opt.classList.remove('active');
+              }
+            });
+          } else {
+            // If any option other than "Aucune" is selected, deselect "Aucune"
+            if (aucuneOption) {
+              aucuneOption.classList.remove('active');
+            }
+          }
+
+          option.classList.toggle('active');
+          updateSelectedOptions();
+
+          // Log the data value each time the user chooses something
+          console.log('Option selected in', selectName + ':', option.getAttribute('data-value'));
+        });
+      });
+
+      // Event listener for removing tags
+      selectedOptionsDiv.addEventListener('click', function (event) {
+        const removeTag = event.target.closest('.remove-tag');
+        if (removeTag) {
+          const valueToRemove = removeTag.getAttribute('data-value');
+          const optionToRemove = customSelect.querySelector('.option[data-value="' + valueToRemove + '"]');
+          optionToRemove.classList.remove('active');
+
+          const otherSelectedOptions = customSelect.querySelectorAll('.option.active:not(.all-tags)');
+
+          if (otherSelectedOptions.length === 0) {
+            allTagsOption.classList.remove('active');
+          }
+
+          updateSelectedOptions();
+
+          // Log the data value when an option is removed
+          console.log('Option removed in', selectName + ':', valueToRemove);
+        }
+      });
+
+      // Event listener for closing the custom select when clicking outside
+      document.addEventListener('click', function (event) {
+        if (!customSelect.contains(event.target) && !selectedOptionsDiv.contains(event.target)) {
+          customSelect.classList.remove('open');
+        }
+      });
+
+      // Event listener for opening the custom select
+      selectBox.addEventListener('click', function (event) {
+        if (!event.target.closest('.tag')) {
+          customSelect.classList.toggle('open');
+        }
+      });
+
+      // Initialize the custom select
+      updateSelectedOptions();
+    });
+
+    // 7. Check 'Langues' section
+    function checkLangues() {
+      const checkboxes = document.querySelectorAll('.checkbox-slikoo.language input[type="checkbox"]');
+      const isChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
+      formCompletion.sectionsCompleted.langues = isChecked;
+      updateProgressBar();
+    }
+    const languesCheckboxes = document.querySelectorAll('.checkbox-slikoo.language input[type="checkbox"]');
+    languesCheckboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', () => {
+        toggleBackground(checkbox);
+        checkLangues();
+      });
+    });
+
+    // 8. Check 'Genre recherché' section
+    function checkGenreRecherche() {
+      const radios = document.querySelectorAll('input[name="gender"]');
+      const isChecked = Array.from(radios).some((radio) => radio.checked);
+      formCompletion.sectionsCompleted.genreRecherche = isChecked;
+      updateProgressBar();
+    }
+    const genreRadios = document.querySelectorAll('input[name="gender"]');
+    genreRadios.forEach((radio) => {
+      radio.addEventListener('change', () => {
+        toggleRadioBackground(radio);
+        checkGenreRecherche();
+      });
+    });
+
+    // 9. Check 'Vous cherchez plutôt quoi ?' section
+    function checkVousCherchez() {
+      const radios = document.querySelectorAll('input[name="search"]');
+      const isChecked = Array.from(radios).some((radio) => radio.checked);
+      formCompletion.sectionsCompleted.vousCherchez = isChecked;
+      updateProgressBar();
+    }
+    const vousCherchezRadios = document.querySelectorAll('input[name="search"]');
+    vousCherchezRadios.forEach((radio) => {
+      radio.addEventListener('change', () => {
+        toggleRadioBackground(radio);
+        checkVousCherchez();
+      });
+    });
+
+    // 10. Check 'Social Media' section
+    function checkSocialMedia() {
+      const inputs = document.querySelectorAll('.social-input');
+      const isFilled = Array.from(inputs).some((input) => input.value.trim() !== '');
+      formCompletion.sectionsCompleted.socialMedia = isFilled;
+      updateProgressBar();
+    }
+    const socialInputs = document.querySelectorAll('.social-input');
+    socialInputs.forEach(function (input) {
+      const wrapper = input.parentElement;
+      const icon = wrapper.querySelector('.clear-icon');
+
+      input.addEventListener('input', function () {
+        if (input.value.trim() !== '') {
+          wrapper.classList.add('filled');
+        } else {
+          wrapper.classList.remove('filled');
+        }
+        checkSocialMedia();
+      });
+
+      icon.addEventListener('click', function () {
+        input.value = '';
+        wrapper.classList.remove('filled');
+        input.focus(); // Optional: keep focus on the input
+        checkSocialMedia();
+      });
+    });
+
+    // **Initial Check on Page Load**
+    checkTypesCuisine();
+    checkAge();
+    checkFumeur();
+    checkAlcool();
+    checkAllergiesAlimentaires();
+    checkCentresInteret();
+    checkLangues();
+    checkGenreRecherche();
+    checkVousCherchez();
+    checkSocialMedia();
+  });
+</script>
+
+
+
+
+  </body>
+</html>
