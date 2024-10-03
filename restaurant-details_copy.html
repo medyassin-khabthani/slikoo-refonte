@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slikoo - Agenda</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body class="py-5" style="background-color:#FDFAFA;">
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        #right_gallery {
+            overflow-y: hidden; /* Hide the scrollbar */
+            position: relative;
+        }
+
+        .container-img {
+            margin: 0 auto;
+            max-width: 100%;
+            max-height: 100vh;
+            background-color: white;
+        }
+
+        .r-3-2 {
+            width: 100%;
+            padding-bottom: 40.667%;
+            background-color: #ddd;
+        }
+
+        .image-holder {
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 15px;
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery {
+            position: relative;
+            white-space: nowrap;
+            font-size: 0;
+        }
+
+        .item-wrapper {
+            cursor: pointer;
+            height: 23%;
+            display: inline-block;
+            background-color: white;
+        }
+
+        .gallery-item {
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover {
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+        }
+        .gallery-item.active {
+            opacity: 1;
+        }
+
+        /* Up and Down Controls */
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+            position: absolute;
+            right: 50px;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+
+        .move-btn {
+            display: block;
+            width: 36px;
+            height: 36px;
+            color: #fff;
+            background-color: #E2E2E2;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .move-btn:hover {
+            color: #fff;
+            background-color: #E61C4C;
+            transition: background-color 0.3s ease;
+        }
+        .modal .move-btn:hover {
+            color: #fff;
+            background-color: #E61C4C;
+            transition: background-color 0.3s ease;
+        }
+        .move-btn i {
+            font-size: 16px;
+        }
+        .modal .move-btn {
+            display: block;
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 38px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .modal .move-btn i {
+            font-size: 18px;
+        }
+        /* Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; 
+  z-index: 1000; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 80%;
+  border-radius: 15px;
+}
+
+/* Slides */
+.slideshow-container {
+  position: relative;
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  border-radius: 15px;
+
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 36px;
+  user-select: none;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: -80px;
+}
+
+.next {
+  right: -80px;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+@media screen and (max-width: 991px) {
+    .item-wrapper {
+            cursor: pointer;
+            width: 23%;
+            height: 100%;
+            display: inline-block;
+            background-color: white;
+        }
+}
+
+    </style>
+
+<div class="container">
+    <div class="container-img" >
+        <div class="row">
+            <div class="col-12 col-lg-10" id="featured-container">        
+                <div class="feature"  id="image_holder">
+                    <figure class="featured-item image-holder r-3-2 transition"></figure>
+                </div>
+            </div>
+            <div class="col-12 col-lg-2 " id="right_gallery">        
+                <div class="gallery-wrapper">
+                    <div class="gallery d-flex flex-lg-column flex-md-row">
+                        <div class="item-wrapper">
+                            <figure class="gallery-item image-holder r-3-2 active transition"></figure>
+                        </div>
+                        <div class="item-wrapper">
+                            <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                        </div>
+                        <div class="item-wrapper">
+                            <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                        </div>
+                        <div class="item-wrapper">
+                            <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                        </div>
+                        <div class="item-wrapper">
+                            <figure class="gallery-item image-holder r-3-2"></figure>
+                        </div>
+                        <div class="item-wrapper">
+                            <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                        </div>
+                        <div class="item-wrapper">
+                            <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                        </div>
+                        <div class="item-wrapper">
+                            <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                        </div>
+                        <div class="item-wrapper">
+                            <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                        </div>
+                        <div class="item-wrapper">
+                            <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                        </div>
+                    </div>
+                </div>
+                <!-- Controls for Up and Down Navigation -->
+
+            </div>
+
+        </div>
+        <div class="controls d-none d-lg-flex">
+            <div class="move-btn up"><i class="fas fa-chevron-up"></i></div>
+            <div class="move-btn down"><i class="fas fa-chevron-down"></i></div>
+        </div>
+    </div>
+</div>
+
+<!-- Slideshow Modal -->
+<div id="slideshowModal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+      <div class="slideshow-container">
+        <!-- Slides will be injected here by JavaScript -->
+        <a class="prev"><div class="move-btn up"><i class="fas fa-chevron-left"></i></div></a>
+        <a class="next"><div class="move-btn up"><i class="fas fa-chevron-right"></i></div></a>
+      </div>
+    </div>
+  </div>
+    <div style="height:600px; background-color:#E61C4C;"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+              var imageHolder = document.getElementById('image_holder');
+        var rightGallery = document.getElementById('right_gallery');
+        var imageHolderHeight = imageHolder.offsetHeight;
+        rightGallery.style.height = imageHolderHeight + "px";
+
+        var gallery = document.querySelector('.gallery');
+        var galleryItems = document.querySelectorAll('.gallery-item');
+        var featured = document.querySelector('.featured-item');
+
+        var upBtn = document.querySelector('.move-btn.up');
+        var downBtn = document.querySelector('.move-btn.down');
+        var scrollAmount = 0;
+        var itemHeight = galleryItems[0].offsetHeight;
+
+        // Clone the gallery items and append them to the gallery
+        for (var i = 0; i < galleryItems.length; i++) {
+            var clone = galleryItems[i].cloneNode(true);
+            gallery.appendChild(clone);
+        }
+
+        // Update the galleryItems NodeList after cloning
+        galleryItems = document.querySelectorAll('.gallery-item');
+        var totalItems = galleryItems.length;
+        var totalScrollHeight = totalItems * itemHeight;
+
+        // Scroll Functions and Update Active Item
+        function scrollUp() {
+            scrollAmount -= itemHeight;
+            if (scrollAmount < 0) {
+                scrollAmount = totalScrollHeight / 2 - itemHeight;
+            }
+            gallery.style.transform = `translateY(-${scrollAmount}px)`;
+            updateActiveItem();
+        }
+
+        function scrollDown() {
+            scrollAmount += itemHeight;
+            if (scrollAmount >= totalScrollHeight / 2) {
+                scrollAmount = 0;
+            }
+            gallery.style.transform = `translateY(-${scrollAmount}px)`;
+            updateActiveItem();
+        }
+
+        upBtn.addEventListener('click', scrollUp);
+        downBtn.addEventListener('click', scrollDown);
+
+        // Initialize gallery images
+        var images = [
+            'images/car.jpg',
+            'images/city.jpg',
+            'images/deer.jpg',
+            'images/flowers.jpg',
+            'images/food.jpg',
+            'images/guy.jpg',
+            'images/landscape.jpg',
+            'images/lips.jpg',
+            'images/night.jpg',
+            'images/table.jpg'
+        ];
+
+        images = images.concat(images);
+
+        // Set Initial Featured Image
+        featured.style.backgroundImage = 'url(' + images[0] + ')';
+
+        // Set Images for Gallery and Add Event Listeners
+        for (let i = 0; i < galleryItems.length; i++) {
+            galleryItems[i].style.backgroundImage = 'url(' + images[i % (images.length / 2)] + ')';
+            galleryItems[i].addEventListener('click', function() {
+                galleryItems.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+                featured.style.backgroundImage = this.style.backgroundImage;
+            });
+        }
+
+        galleryItems[0].classList.add('active');
+
+        function updateActiveItem() {
+            var index = Math.floor(scrollAmount / itemHeight) % (totalItems / 2);
+    galleryItems.forEach(item => item.classList.remove('active'));
+    galleryItems[index].classList.add('active');
+        }
+
+        // Slideshow Modal Functionality
+        var modal = document.getElementById('slideshowModal');
+        var closeBtn = document.querySelector('.close');
+        var slideIndex = 1;
+
+        imageHolder.addEventListener('click', function() {
+          openModal();
+        });
+
+        function openModal() {
+          modal.style.display = "block";
+          showSlides(slideIndex);
+        }
+
+        closeBtn.addEventListener('click', function() {
+          closeModal();
+        });
+
+        function closeModal() {
+          modal.style.display = "none";
+        }
+
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+
+        function buildSlides() {
+          var slideshowContainer = document.querySelector('.slideshow-container');
+          for (var i = 0; i < images.length / 2; i++) {
+            var slideDiv = document.createElement('div');
+            slideDiv.className = 'mySlides';
+            var img = document.createElement('img');
+            img.src = images[i];
+            slideDiv.appendChild(img);
+            slideshowContainer.insertBefore(slideDiv, slideshowContainer.querySelector('.prev'));
+          }
+        }
+
+        buildSlides();
+
+        function showSlides(n) {
+          var i;
+          var slides = document.getElementsByClassName("mySlides");
+          if (n > slides.length) {slideIndex = 1;}
+          if (n < 1) {slideIndex = slides.length;}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          slides[slideIndex - 1].style.display = "block";
+        }
+
+        var prevBtn = document.querySelector('.prev');
+        var nextBtn = document.querySelector('.next');
+
+        prevBtn.addEventListener('click', function() {
+          plusSlides(-1);
+        });
+
+        nextBtn.addEventListener('click', function() {
+          plusSlides(1);
+        });
+
+        window.addEventListener('click', function(event) {
+          if (event.target == modal) {
+            closeModal();
+          }
+        });
+
+    </script>
+    
+</body>
+</html>

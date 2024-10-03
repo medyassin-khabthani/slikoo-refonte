@@ -431,7 +431,229 @@ position: absolute;
 /* /PLAYGROUND */
 /* Responsive CSS */
 
+
+.circular-progress {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 50%;
+  --size: 100px;
+  --half-size: calc(var(--size) / 2);
+  --stroke-width: 10px;
+  --radius: calc((var(--size) - var(--stroke-width)) / 2);
+  --circumference: calc(var(--radius) * pi * 2);
+  --dash: calc((var(--progress) * var(--circumference)) / 100);
+  animation: progress-animation 5s linear 0s 1 forwards;
+}
+
+.circular-progress circle {
+  cx: var(--half-size);
+  cy: var(--half-size);
+  r: var(--radius);
+  stroke-width: var(--stroke-width);
+  fill: none;
+  stroke-linecap: round;
+}
+
+.circular-progress circle.bg {
+  stroke: #ddd;
+}
+
+.circular-progress circle.fg {
+  transform: rotate(-90deg);
+  transform-origin: var(--half-size) var(--half-size);
+  stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
+  transition: stroke-dasharray 0.3s linear 0s;
+  stroke: #16ABDB;
+}
+
+.progress-bar-div {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1000;
+  
+}
+
+/* Center the percentage text within the progress bar */
+.progress-bar-span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
+  color: #fff; /* Adjust the text color as needed */
+}
+
+/* #calendar{
+  margin-left: auto;
+  margin-right: auto;
+  width: 320px;
+  font-family: 'Lato', sans-serif;
+} */
+
+#calendar {
+  position: sticky;
+  top: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  
+}
+
+#calendar_weekdays div{
+  display:inline-block;
+  vertical-align:top;
+}
+#calendar_content, #calendar_weekdays, #calendar_header{
+  position: relative;
+  width: 320px;
+  overflow: hidden;
+  float: left;
+  z-index: 10;
+}
+#calendar_weekdays div, #calendar_content div{
+  width:40px;
+  height: 40px;
+  overflow: hidden;
+  text-align: center;
+  background-color: #FFFFFF;
+  color: #787878;
+}
+#calendar_content{
+  -webkit-border-radius: 0px 0px 12px 12px;
+  -moz-border-radius: 0px 0px 12px 12px; 
+  border-radius: 0px 0px 12px 12px;
+}
+#calendar_content div{
+  float: left;
+}
+#calendar_content div:hover{
+  background-color: #F8F8F8;
+  cursor:pointer;
+  border-radius: 5px;
+
+}
+#calendar_content div.blank{
+  background-color: #E8E8E8;
+}
+#calendar_header, #calendar_content div.today{
+  zoom: 1;
+  filter: alpha(opacity=70);
+  opacity: 0.7;
+  border-radius: 5px;
+
+}
+#calendar_content div.today{
+  color: #FFFFFF;
+}
+#calendar_header{
+  width: 100%;
+  height: 37px;
+  text-align: center;
+  background-color: #FF6860;
+  padding: 18px 0;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px; 
+  border-radius: 12px 12px 0px 0px;
+}
+#calendar_header h3{
+  font-size: 1.3em;
+  color: #FFFFFF;
+  float:left;
+  width:70%;
+}
+i[class^="fa-solid fa-chevron"]{
+  color: #FFFFFF;
+  float: left;
+  width:15%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.res-card{
+  font-weight: 500;
+  border-radius: 15px;
+  background-color: #fff;
+  padding: 25px 15px;
+  border: 1px solid #bdbdbd;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  cursor:pointer;
+}
+.res-card i{
+  color: #b3b3b3;
+  margin-left:10px;
+
+}
+.res-card.active{
+  background-color: #E61C4C;
+  color:#ffffff;
+}
+.res-card.active .icon{
+  filter: brightness(0) saturate(100%) invert(100%) contrast(100%);
+
+}
+.res-card.active i{
+  color: #fff;
+  margin-left:10px;
+
+}
+
+.circle-selector {
+    display: flex;
+    gap: 15px;
+}
+
+.circle-selector input[type="radio"] {
+    display: none;
+}
+
+.circle-selector label {
+    width: 50px;
+    height: 50px;
+    background-color: #EAEAEA;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.circle-selector input[type="radio"]:checked + label {
+    background-color: #E61C4C;
+    color: #fff;
+}
+.slikoo-datepicker{
+  background-color: #E61C4C;
+  padding: 15px;
+ 
+  font-family: "Roboto Mono",monospace;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+::-webkit-calendar-picker-indicator{
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
 @media screen and (max-width: 991px) {
+  .tables-title{
+    margin-top:20px;
+  }
+  #calendar {
+    position: static;
+    width: 100%;
+    margin: 0 auto;
+  }
   .right-cta{
     height: auto;
     margin: 2rem 0;
@@ -441,7 +663,7 @@ position: absolute;
 }  
 .circular-progress {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 0%;
+  border-radius: 50%;
   --size: 100px;
   --half-size: calc(var(--size) / 2);
   --stroke-width: 10px;
@@ -488,69 +710,4 @@ position: absolute;
     font-weight: 500;
     color: #1e1e1e!important; /* Adjust the text color as needed */
   }
-}
-
-.circular-progress {
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 50%;
-  --size: 100px;
-  --half-size: calc(var(--size) / 2);
-  --stroke-width: 10px;
-  --radius: calc((var(--size) - var(--stroke-width)) / 2);
-  --circumference: calc(var(--radius) * pi * 2);
-  --dash: calc((var(--progress) * var(--circumference)) / 100);
-  animation: progress-animation 5s linear 0s 1 forwards;
-}
-
-.circular-progress circle {
-  cx: var(--half-size);
-  cy: var(--half-size);
-  r: var(--radius);
-  stroke-width: var(--stroke-width);
-  fill: none;
-  stroke-linecap: round;
-}
-
-.circular-progress circle.bg {
-  stroke: #ddd;
-}
-
-.circular-progress circle.fg {
-  transform: rotate(-90deg);
-  transform-origin: var(--half-size) var(--half-size);
-  stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
-  transition: stroke-dasharray 0.3s linear 0s;
-  stroke: #16ABDB;
-}
-
-/* @property --progress {
-  syntax: "<number>";
-  inherits: false;
-  initial-value: 0;
-}
-
-@keyframes progress-animation {
-  from {
-    --progress: 0;
-  }
-  to {
-    --progress: 100;
-  }
-} */
-.progress-bar-div {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 1000;
-  
-}
-
-/* Center the percentage text within the progress bar */
-.progress-bar-span {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: 500;
-  color: #fff; /* Adjust the text color as needed */
 }

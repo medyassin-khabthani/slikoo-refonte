@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Slikoo - Restaurant</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #FDFAFA;
+        }
+
+        .container-img {
+            margin: 0 auto;
+            max-width: 100%;
+            max-height: 100vh;
+            background-color: white;
+        }
+
+        .r-3-2 {
+            width: 100%;
+            padding-bottom: 40.667%; /* For 3:2 aspect ratio */
+        }
+
+        .image-holder {
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 15px;
+        }
+
+        /* Gallery styles */
+        #right_gallery {
+            overflow-y: hidden; /* Hide the scrollbar */
+            position: relative;
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery {
+            position: relative;
+            white-space: nowrap;
+            font-size: 0;
+        }
+
+        .item-wrapper {
+            cursor: pointer;
+            height: 23%;
+            display: inline-block;
+        }
+
+        .gallery-item {
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item.active {
+            opacity: 1;
+        }
+
+        .full-screen {
+            display: block;
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .feature{
+            position: relative;
+        }
+        /* Up and Down Controls */
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: end;
+            position: absolute;
+            right: 50px;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+
+        .move-btn {
+            display: block;
+            width: 36px;
+            height: 36px;
+            color: #fff;
+            background-color: #E2E2E2;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 36px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .move-btn:hover {
+            color: #fff;
+            background-color: #E61C4C;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal .move-btn:hover {
+            color: #fff;
+            background-color: #E61C4C;
+            transition: background-color 0.3s ease;
+        }
+
+        .move-btn i {
+            font-size: 16px;
+        }
+
+        .modal .move-btn {
+            display: block;
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 38px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .modal .move-btn i {
+            font-size: 18px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 80%;
+            border-radius: 15px;
+        }
+
+        .slideshow-container {
+            position: relative;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .mySlides img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 36px;
+            user-select: none;
+            transform: translateY(-50%);
+        }
+
+        .prev {
+            left: -80px;
+        }
+
+        .next {
+            right: -80px;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .places-card{
+            background-color: #fff;
+            
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+                    }
+        .single-place-card{
+            background-color: #f7f7f7;
+            font-weight: 500;
+            border-radius: 15px;
+            padding: 15px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            cursor:pointer;
+        }
+        .price{
+            font-size: 22px;
+            font-weight: 600;
+
+        }
+        .client{
+            font-size: 18px;
+            font-weight: 600;
+            color: #BDBDBD;
+        }
+
+        .single-place-card .nbr{
+            color:#b3b3b3
+        }
+        .single-place-card.active{
+            background-color: #F5D4DB;
+            border:1px solid #E61C4C;
+            color:#E61C4C;
+        }
+        
+        .single-place-card.active{
+            background-color: #F5D4DB;
+            border:1px solid #E61C4C;
+            color:#E61C4C;
+        }
+
+        .single-place-card.active .nbr{
+            color:#E61C4C;
+        }
+
+        .single-place-card.active .icon{
+            filter: brightness(0) saturate(100%) invert(35%) sepia(78%) 
+            saturate(2648%) hue-rotate(335deg) brightness(91%) contrast(96%); /* Filled #E61C4C color */
+        }
+        .restaurant-card{
+            padding: 25px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        }
+        .restaurant-card-menu{
+            display: inline-block;
+            background-color: #f8f8f8;
+            border-radius: 15px;
+        }
+        .restaurant-card-menu-tab{
+            text-align: center;
+            padding: 10px;
+            margin: 5px;
+            text-decoration: none;
+            color: #1e1e1e;
+            cursor:pointer;
+            width: 150px;
+        }
+        .restaurant-card-menu-tab:hover{
+            color: #fff;
+            background-color: #E61C4C;
+            border-radius: 15px;
+            transition:background-color ease 0.4s;
+
+        }
+        .restaurant-card-menu-tab.active{
+            color: #fff;
+            background-color: #E61C4C;
+            border-radius: 15px;
+        }
+        .restaurant-details i{
+            color: #E61C4C;
+        }
+        /* Responsive styles */
+        @media screen and (max-width: 991px) {
+            #right_gallery {
+                display: none;
+            }
+            .controls {
+                display: none;
+            }
+            /* Adjust the featured image to take full width */
+            #featured-container {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="py-5">
+    <div class="container">
+        <div class="container-img">
+            <div class="row">
+                <div class="col-12 col-lg-10" id="featured-container">        
+                    <div class="feature" id="image_holder">
+                        <figure class="featured-item image-holder r-3-2 transition"></figure>
+                        <div class="full-screen" ><i class="fa-solid fa-expand"></i></div>
+                        
+                    </div>
+                </div>
+                <div class="col-12 col-lg-2" id="right_gallery">        
+                    <div class="gallery-wrapper">
+                        <div class="gallery d-flex flex-lg-column">
+                            <!-- Gallery items -->
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 active transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 active transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="controls d-none d-lg-flex">
+                <div class="move-btn up"><i class="fas fa-chevron-up"></i></div>
+                <div class="move-btn down"><i class="fas fa-chevron-down"></i></div>
+            </div>
+        </div>
+        <div>
+            <div class="row my-3">
+                <div class="col-lg-8">
+                    <h3>
+                        Baguette & Baguette
+                    </h3>
+                    <p>Appartenant à <a href="#" style="color: #e61c4c;font-weight: 500; text-decoration: none;">Mohamed Yassine Khabthani</a> à <a href="#" style="color: #e61c4c;font-weight: 500; text-decoration: none;">Paris</a></p>
+                
+                <div class="restaurant-card ">
+                    <div class="restaurant-card-menu mb-3">
+                        <div class="d-flex flex-row">
+                            <a class="restaurant-card-menu-tab active">
+                                Le restaurant
+                            </a>
+                            <a class="restaurant-card-menu-tab">
+                                Le gérant
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="restaurant-details">
+                        <div class="row">
+                            <div class="col-lg-3 text-center">
+                                <div class="card">
+                                    <div class="card-body">
+                                <i class="fa-solid fa-euro-sign"></i>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <div class="card">
+                                    <div class="card-body">
+                                <i class="fa-solid fa-euro-sign"></i>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <div class="card">
+                                    <div class="card-body">
+                                <i class="fa-solid fa-euro-sign"></i>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <div class="card">
+                                    <div class="card-body">
+                                <i class="fa-solid fa-euro-sign"></i>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="places-card">
+                        <h5 class="mb-3">Place(s) disponibles(s)</h5>
+                        <div>
+                            <div class="single-place-card active">
+                                    <span>Mardi 10 sep, 14:00 - <strong>35€</strong></span>
+                                    <div class="d-flex flex-row align-items-center">
+                                        <img src="images/chair.svg" class="icon" alt="places">
+                                        <span class="nbr">2/4</span>  
+                                </div>
+                            </div>
+                            <div class="single-place-card">
+                                <span>Mardi 10 sep, 14:00 - 35€</span>
+                                <div class="d-flex flex-row align-items-center">
+                                    <img src="images/chair.svg" class="icon" alt="places">
+                                    <span class="nbr">2/4</span>  
+                            </div>
+                        </div>
+                        <div class="single-place-card">
+                            <span>Mardi 10 sep, 14:00 - 35€</span>
+                            <div class="d-flex flex-row align-items-center">
+                                <img src="images/chair.svg" class="icon" alt="places">
+                                <span class="nbr">2/4</span>  
+                        </div>
+                    </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nbrPerson" class="form-label"> <strong>Nombre de client</strong></label>
+                            <select class="form-select" id="nbrPerson">
+                                <option selected value="1">1 Client</option>
+                                <option value="2">2 Clients</option>
+                                <option value="3">3 Clients</option>
+                                <option value="4">4 Clients</option>
+                    
+                                <option value="5">5 Clients</option>
+                    
+                                <option value="6">6 Clients</option>
+                    
+                                <option value="7">7 Clients</option>
+                                <option value="8">8 Clients</option>
+                                <option value="9">9 Clients</option>
+                    
+                              </select>
+                            </div>
+                            <div class="text-center mb-2">
+                            <span class="price">10.00 € /</span><span class="client"> client</span>
+                            </div>
+                            <button id="buttonSubmit" type="submit"class="slikoo-button">Réserver</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Slideshow Modal -->
+    <div id="slideshowModal" class="modal">
+        <span class="close" style="z-index:10000;">&times;</span>
+        <div class="modal-content">
+            <div class="slideshow-container">
+                <!-- Slides will be injected here by JavaScript -->
+                <a class="prev"><div class="move-btn up"><i class="fas fa-chevron-left"></i></div></a>
+                <a class="next"><div class="move-btn up"><i class="fas fa-chevron-right"></i></div></a>
+            </div>
+        </div>
+    </div>
+    <div style="height:600px; background-color:#E61C4C;"></div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        var imageHolder = document.getElementById('image_holder');
+        var rightGallery = document.getElementById('right_gallery');
+        var featured = document.querySelector('.featured-item');
+        var imageHolderHeight = imageHolder.offsetHeight;
+
+        // Adjust height only for larger screens
+        if (window.matchMedia("(min-width: 992px)").matches) {
+            rightGallery.style.height = imageHolderHeight + "px";
+        }
+
+        var gallery = document.querySelector('.gallery');
+        var galleryItems = document.querySelectorAll('.gallery-item');
+        var upBtn = document.querySelector('.move-btn.up');
+        var downBtn = document.querySelector('.move-btn.down');
+        var scrollAmount = 0;
+        var itemHeight = galleryItems[0].offsetHeight;
+
+        // Clone the gallery items and append them to the gallery
+        for (var i = 0; i < galleryItems.length; i++) {
+            var clone = galleryItems[i].cloneNode(true);
+            gallery.appendChild(clone);
+        }
+
+        // Update the galleryItems NodeList after cloning
+        galleryItems = document.querySelectorAll('.gallery-item');
+        var totalItems = galleryItems.length;
+        var totalScrollHeight = totalItems * itemHeight;
+
+        // Scroll Functions and Update Active Item
+        function scrollUp() {
+            scrollAmount -= itemHeight;
+            if (scrollAmount < 0) {
+                scrollAmount = totalScrollHeight / 2 - itemHeight;
+            }
+            gallery.style.transform = `translateY(-${scrollAmount}px)`;
+            updateActiveItem();
+        }
+
+        function scrollDown() {
+            scrollAmount += itemHeight;
+            if (scrollAmount >= totalScrollHeight / 2) {
+                scrollAmount = 0;
+            }
+            gallery.style.transform = `translateY(-${scrollAmount}px)`;
+            updateActiveItem();
+        }
+
+        // Add event listeners for up and down buttons
+        if (window.innerWidth >= 992) {
+            upBtn.addEventListener('click', scrollUp);
+            downBtn.addEventListener('click', scrollDown);
+        }
+
+        // Initialize gallery images
+        var images = [
+            'images/car.jpg',
+            'images/city.jpg',
+            'images/deer.jpg',
+            'images/flowers.jpg',
+            'images/food.jpg',
+            'images/guy.jpg',
+            'images/landscape.jpg',
+            'images/lips.jpg',
+            'images/night.jpg',
+            'images/table.jpg'
+        ];
+
+        images = images.concat(images); // Duplicate the images for infinite scrolling
+
+        // Set Initial Featured Image
+        featured.style.backgroundImage = 'url(' + images[0] + ')';
+
+        // Set Images for Gallery and Add Event Listeners
+        for (let i = 0; i < galleryItems.length; i++) {
+            galleryItems[i].style.backgroundImage = 'url(' + images[i % (images.length / 2)] + ')';
+            galleryItems[i].addEventListener('click', function() {
+                galleryItems.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+                featured.style.backgroundImage = this.style.backgroundImage;
+            });
+        }
+
+        galleryItems[0].classList.add('active');
+
+        // Update Active Item without changing the featured image
+        function updateActiveItem() {
+            var index = Math.floor(scrollAmount / itemHeight) % (totalItems / 2);
+            galleryItems.forEach(item => item.classList.remove('active'));
+            galleryItems[index].classList.add('active');
+        }
+
+        // Slideshow Modal Functionality
+        var modal = document.getElementById('slideshowModal');
+        var closeBtn = document.querySelector('.close');
+        var slideIndex = 1;
+
+        imageHolder.addEventListener('click', function() {
+            openModal();
+        });
+
+        function openModal() {
+            modal.style.display = "block";
+            showSlides(slideIndex);
+        }
+
+        closeBtn.addEventListener('click', function() {
+            closeModal();
+        });
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function buildSlides() {
+            var slideshowContainer = document.querySelector('.slideshow-container');
+            for (var i = 0; i < images.length / 2; i++) {
+                var slideDiv = document.createElement('div');
+                slideDiv.className = 'mySlides';
+                var img = document.createElement('img');
+                img.src = images[i];
+                slideDiv.appendChild(img);
+                slideshowContainer.insertBefore(slideDiv, slideshowContainer.querySelector('.prev'));
+            }
+        }
+
+        buildSlides();
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            if (n > slides.length) {slideIndex = 1;}
+            if (n < 1) {slideIndex = slides.length;}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        var prevBtn = document.querySelector('.prev');
+        var nextBtn = document.querySelector('.next');
+
+        prevBtn.addEventListener('click', function() {
+            plusSlides(-1);
+        });
+
+        nextBtn.addEventListener('click', function() {
+            plusSlides(1);
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        });
+
+        // Carousel functionality for smaller screens
+        if (window.innerWidth < 992) {
+            var carouselIndex = 0;
+
+            function carouselChange() {
+                carouselIndex++;
+                if (carouselIndex >= images.length / 2) {
+                    carouselIndex = 0;
+                }
+                featured.style.backgroundImage = 'url(' + images[carouselIndex] + ')';
+            }
+
+            setInterval(carouselChange, 3000); // Change image every 3 seconds
+        }
+    </script>
+</body>
+</html>

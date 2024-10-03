@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Slikoo - Agenda</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles/style.css">
+      </head>
+</head>
+<body class="p-5" style="background-color:#FDFAFA;">
+    <style>
+        .friends-settings-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.red-link {
+    font-size: 14px;
+    color: #E61C4C;
+    text-decoration: none;
+}
+.friends-settings-card > * {
+    margin-bottom: 15px;
+}
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <!--TO BE REMOVED-->
+                <div class="friends-settings-card" style="background-size: cover;">
+                    <a href="/userprofil/54" class="red-link">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        Retourner au profil
+                    </a>
+                    <h6>Tableau de bord</h6>
+                    <a href="#" id="reclamation">Réclamation</a>
+                    <a href="#">Blocage</a>
+                </div>
+                <!-- /TO BE REMOVED-->
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-lg-6 position-relative" id="calendarParent">
+                        <div id="calendar">
+                            <div id="calendar_header" class="d-flex flex-row align-items-center justify-content-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                    <h3 class="m-0"></h3>
+                                    <i class="fa-solid fa-chevron-right"></i>         
+                            </div>
+                            <div id="calendar_weekdays"></div>
+                            <div id="calendar_content"></div>
+                          </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5 class="tables-title">
+                            Vos tables disponibles
+                        </h5>
+                        <p class="text-secondary">Semaine du 9 sep - 15 sep</p>
+                        <div class="res-card active">
+                            <span>Mardi 10 sep, 14:00</span>
+                            <div class="d-flex flex-row align-items-center">
+                                <img src="images/chair.svg" class="icon" alt="places">
+                                <span>4/4</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>   
+                        </div>
+                        <div class="res-card">
+                            <span>Mardi 10 sep, 14:00</span>
+                            <div class="d-flex flex-row align-items-center">
+                                <img src="images/chair.svg" class="icon" alt="places">
+                                <span>2/4</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>  
+                            
+                        </div>
+                        <div class="res-card">
+                            <span>Mardi 10 sep, 14:00</span>
+                            <div class="d-flex flex-row align-items-center">
+                                <img src="images/chair.svg" class="icon" alt="places">
+                                <span>2/4</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>  
+                            
+                        </div>
+                        <div class="res-card">
+                            <span>Mardi 10 sep, 14:00</span>
+                            <div class="d-flex flex-row align-items-center">
+                                <img src="images/chair.svg" class="icon" alt="places">
+                                <span>2/4</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>  
+                            
+                        </div>
+                        <p class="text-secondary">Semaine du 16 sep - 23 sep</p>
+
+                        <div class="res-card">
+                            <span>Mardi 10 sep, 14:00</span>
+                            <div class="d-flex flex-row align-items-center">
+                                <img src="images/chair.svg" class="icon" alt="places">
+                                <span>2/4</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>  
+                            
+                        </div>
+                        <div class="res-card">
+                            <span>Mardi 10 sep, 14:00</span>
+                            <div class="d-flex flex-row align-items-center">
+                                <img src="images/chair.svg" class="icon" alt="places">
+                                <span>2/4</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>  
+                            
+                        </div>
+                        <div class="res-card">
+                            <span>Mardi 10 sep, 14:00</span>
+                            <div class="d-flex flex-row align-items-center">
+                                <img src="images/chair.svg" class="icon" alt="places">
+                                <span>2/4</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>  
+                            
+                        </div>
+                        <div class="res-card">
+                            <span>Mardi 10 sep, 14:00</span>
+                            <div class="d-flex flex-row align-items-center">
+                                <img src="images/chair.svg" class="icon" alt="places">
+                                <span>2/4</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>  
+                            
+                        </div>
+                        <div class="res-card">
+                            <span>Mardi 10 sep, 14:00</span>
+                            <div class="d-flex flex-row align-items-center">
+                                <img src="images/chair.svg" class="icon" alt="places">
+                                <span>2/4</span>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>  
+                            
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div style="height:600px; background-color:#E61C4C;">
+            
+        </div>
+    </div>
+
+        <!-- Date Modal -->
+    <div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+            <h5 class="modal-title" id="dateModalLabel">Organiser une table</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <div class="mb-2">
+                    <h6>Date choisi</h6>
+<!--                     <input type="text" class="form-control" id="selectedDate" readonly></input>
+ -->                
+                 <input type="date" class="slikoo-datepicker" id="selectedDate">
+
+                </div>
+
+                <h6>Nombre de chaises</h6>
+                    <div class="circle-selector">
+                        <input type="radio" id="circle1" name="chairs" value="1" checked>
+                        <label for="circle1">1</label>
+                
+                        <input type="radio" id="circle2" name="chairs" value="2">
+                        <label for="circle2">2</label>
+                
+                        <input type="radio" id="circle3" name="chairs" value="3">
+                        <label for="circle3">3</label>
+                
+                        <input type="radio" id="circle4" name="chairs" value="4">
+                        <label for="circle4">4</label>
+                
+                        <input type="radio" id="circle5" name="chairs" value="5">
+                        <label for="circle5">5</label>
+                
+                        <input type="radio" id="circle6" name="chairs" value="6">
+                        <label for="circle6">6</label>
+                
+                        <input type="radio" id="circle7" name="chairs" value="7">
+                        <label for="circle7">7</label>
+                    </div>
+                </div>
+            <div class="modal-footer"> 
+                <button type="button" class="slikoo-button" data-bs-dismiss="modal">Soumettre</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!--     <script>
+        $(function(){function c(){p();var e=h();var r=0;var u=false;l.empty();while(!u){if(s[r]==e[0].weekday){u=true}else{l.append('<div class="blank"></div>');r++}}for(var c=0;c<42-r;c++){if(c>=e.length){l.append('<div class="blank"></div>')}else{var v=e[c].day;var m=g(new Date(t,n-1,v))?'<div class="today">':"<div>";l.append(m+""+v+"</div>")}}var y=o[n-1];a.css("background-color",y).find("h1").text(i[n-1]+" "+t);f.find("div").css("color",y);l.find(".today").css("background-color",y);d()}function h(){var e=[];for(var r=1;r<v(t,n)+1;r++){e.push({day:r,weekday:s[m(t,n,r)]})}return e}function p(){f.empty();for(var e=0;e<7;e++){f.append("<div>"+s[e].substring(0,3)+"</div>")}}function d(){var t;var n=$("#calendar").css("width",e+"px");n.find(t="#calendar_weekdays, #calendar_content").css("width",e+"px").find("div").css({width:e/7+"px",height:e/7+"px","line-height":e/7+"px"});n.find("#calendar_header").css({height:e*(1/7)+"px"}).find('i[class^="fa-solid fa-chevron"]').css("line-height",e*(1/7)+"px")}function v(e,t){return(new Date(e,t,0)).getDate()}function m(e,t,n){return(new Date(e,t-1,n)).getDay()}function g(e){return y(new Date)==y(e)}function y(e){return e.getFullYear()+"/"+(e.getMonth()+1)+"/"+e.getDate()}function b(){var e=new Date;t=e.getFullYear();n=e.getMonth()+1}var e=480;var t=2013;var n=9;var r=[];var i=["JANVIER","FEVRIER","MARS","AVRIL","MAY","JUIN","JUILLET","AOÛT","SEPTEMBRE","OCTOBRE","NOVEMBRE","DECEMBRE"];var s=["Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi"];var o=["#028A5D","#006D49","#62DB1B","#46B603","#369000","#E61C4B","#BF032F","#970023","#FA681E","#D04904","#A43700","#14A777"];var u=$("#calendar");var a=u.find("#calendar_header");var f=u.find("#calendar_weekdays");var l=u.find("#calendar_content");b();c();a.find('i[class^="fa-solid fa-chevron"]').on("click",function(){var e=$(this);var r=function(e){n=e=="next"?n+1:n-1;if(n<1){n=12;t--}else if(n>12){n=1;t++}c()};if(e.attr("class").indexOf("left")!=-1){r("previous")}else{r("next")}})})
+    </script> -->
+    <script>
+        $(function() {
+            
+    function c() {
+    p();
+    var e = h();
+    var r = 0;
+    var u = false;
+    l.empty();
+    while (!u) {
+        if (s[r] == e[0].weekday) {
+            u = true;
+        } else {
+            l.append('<div class="blank"></div>');
+            r++;
+        }
+    }
+    for (var c = 0; c < 42 - r; c++) {
+        if (c >= e.length) {
+            l.append('<div class="blank"></div>');
+        } else {
+            var v = e[c].day;
+            var currentDate = new Date(t, n - 1, v);
+            var isToday = g(currentDate);
+            var dateStr = t + '-' + (n < 10 ? '0' + n : n) + '-' + (v < 10 ? '0' + v : v);
+
+            var divClass = isToday ? 'today' : '';
+            var dayDiv = '<div class="' + divClass + '" data-date="' + dateStr + '">' + v + '</div>';
+            l.append(dayDiv);
+        }
+    }
+    var y = o[n - 1];
+    a.css("background-color", y).find("h3").text(i[n - 1] + " " + t);
+    f.find("div").css("color", y);
+    l.find(".today").css("background-color", y);
+    d();
+    updateCalendarHeight();
+}
+
+    function h() {
+        var e = [];
+        for (var r = 1; r < v(t, n) + 1; r++) {
+            e.push({
+                day: r,
+                weekday: s[m(t, n, r)]
+            })
+        }
+        return e
+    }
+
+    function p() {
+        f.empty();
+        for (var e = 0; e < 7; e++) {
+            f.append("<div>" + s[e].substring(0, 3) + "</div>")
+        }
+    }
+
+    function d() {
+        var t;
+        var n = $("#calendar").css("width", e + "px");
+        n.find(t = "#calendar_weekdays, #calendar_content").css("width", e + "px").find("div").css({
+            width: e / 7 + "px",
+            height: e / 7 + "px",
+            "line-height": e / 7 + "px"
+        });
+        n.find("#calendar_header").css({
+            height: e * (1 / 7) + "px"
+        }).find('i[class^="fa-solid fa-chevron"]').css("line-height", e * (1 / 7) + "px")
+    }
+
+    function v(e, t) {
+        return (new Date(e, t, 0)).getDate()
+    }
+
+    function m(e, t, n) {
+        return (new Date(e, t - 1, n)).getDay()
+    }
+
+    function g(e) {
+        return y(new Date) == y(e)
+    }
+
+    function y(e) {
+        return e.getFullYear() + "/" + (e.getMonth() + 1) + "/" + e.getDate()
+    }
+
+    function b() {
+        var e = new Date;
+        t = e.getFullYear();
+        n = e.getMonth() + 1
+    }
+    
+    var calendarParent = document.getElementById("calendarParent");
+    var calendarParentWidth = calendarParent.offsetWidth;
+    
+    var e = calendarParentWidth - 30;
+    var t = 2013;
+    var n = 9;
+    var r = [];
+    var i = ["JANVIER", "FEVRIER", "MARS", "AVRIL", "MAY", "JUIN", "JUILLET", "AOÛT", "SEPTEMBRE", "OCTOBRE", "NOVEMBRE", "DECEMBRE"];
+    var s = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+    var o = ["#028A5D", "#006D49", "#62DB1B", "#46B603", "#369000", "#E61C4C", "#BF032F", "#970023", "#FA681E", "#D04904", "#A43700", "#14A777"];
+    var u = $("#calendar");
+    var a = u.find("#calendar_header");
+    var f = u.find("#calendar_weekdays");
+    var l = u.find("#calendar_content");
+
+    function updateCalendarHeight() {
+        var calendar = document.getElementById("calendar");
+        var calendarHeader = document.getElementById("calendar_header");
+        var calendarWeekdays = document.getElementById("calendar_weekdays");
+        var calendarContent = document.getElementById("calendar_content");
+
+        var height1 = calendarHeader.offsetHeight;
+        var height2 = calendarWeekdays.querySelector("div").offsetHeight;
+        var height3 = (calendarContent.querySelector("div").offsetHeight * 6);
+
+        var calendarHeight = height1 + height2 + height3;
+
+        console.log("calendarHeight " + calendarHeight);
+
+        calendar.style.height = calendarHeight -1  + "px";
+    }
+
+    l.on('click', 'div:not(.blank)', function() {
+        var date = $(this).data('date');
+        // Set the date in the modal
+        $('#selectedDate').text(date);
+        $('#selectedDate').val(date);
+        // Show the modal
+        $('#dateModal').modal('show');
+    });
+    
+    b();
+    c();
+
+    $(window).on("resize", function() {
+        var calendarParentWidth = calendarParent.offsetWidth;
+        console.log("calendarParentWidthResize", calendarParentWidth);
+
+        e = calendarParentWidth - 30;
+
+/*         var calendar = document.getElementById("calendar");
+        var calendarHeader = document.getElementById("calendar_header");
+        var calendarWeekdays = document.getElementById("calendar_weekdays");
+        var calendarContent = document.getElementById("calendar_content");
+
+        var height1 = calendarHeader.offsetHeight;
+        var height2 = calendarWeekdays.querySelector("div").offsetHeight;
+        var height3 = (calendarContent.querySelector("div").offsetHeight * 6);
+
+        var calendarHeight = height1 + height2 + height3;
+
+        console.log("calendarHeight "+calendarHeight);
+
+        calendar.style.height= calendarHeight.toString() +"px" */
+
+        //calendar.style.height= calendarHeight.toString() +"px"
+
+        c();
+    });
+
+    a.find('i[class^="fa-solid fa-chevron"]').on("click", function() {
+        var e = $(this);
+        var r = function(e) {
+            n = e == "next" ? n + 1 : n - 1;
+            if (n < 1) {
+                n = 12;
+                t--
+            } else if (n > 12) {
+                n = 1;
+                t++
+            }
+            c()
+        };
+
+        if (e.attr("class").indexOf("left") != -1) {
+            r("previous")
+        } else {
+            r("next")
+        }
+    })
+})
+    </script>
+    <script>
+            //Tracking Scroll Progress Bar
+            window.onscroll = function() {
+            var calendarParent = document.getElementById("calendarParent");
+            
+            var calendar = document.getElementById("calendar");
+            
+            const viewportHeight = window.innerHeight;
+
+            calendarParent = calendarParent.offsetHeight ;
+
+            calendarHeight = calendar.offsetHeight ;
+
+
+            console.log(calendarHeight);
+/* 
+            if(window.pageYOffset + viewportHeight > constraintFixedHeight + 80){
+            progressBar.style.visibility = "hidden";
+            }else{
+            progressBar.style.visibility = "visible";
+
+            } */
+            };
+    </script>
+<!--     <script>
+            /* Playground*/
+    
+    var calendar = document.getElementById("calendar");
+    var calendarHeader = document.getElementById("calendar_header");
+    var calendarWeekdays = document.getElementById("calendar_weekdays");
+    var calendarContent = document.getElementById("calendar_content");
+
+    var height1 = calendarHeader.offsetHeight;
+    var height2 = calendarWeekdays.querySelector("div").offsetHeight;
+    var height3 = (calendarContent.querySelector("div").offsetHeight * 6);
+
+    var calendarHeight = height1 + height2 + height3;
+
+    console.log("calendarHeight "+calendarHeight);
+
+    calendar.style.height= calendarHeight.toString() +"px"
+
+    </script> -->
+</body>
+
+</html>
