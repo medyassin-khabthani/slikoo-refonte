@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
 
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <style>
@@ -55,7 +56,7 @@
             overflow: hidden;
         }
 
-        .gallery {
+        .gallery-header {
             position: relative;
             white-space: nowrap;
             font-size: 0;
@@ -222,6 +223,8 @@
             cursor: pointer;
         }
         .places-card{
+            position:sticky;
+            top:15px;
             background-color: #fff;
             
             border-radius: 15px;
@@ -275,6 +278,7 @@
         }
         .restaurant-card{
             padding: 25px;
+            margin-bottom: 25px;
             background-color: #fff;
             border-radius: 15px;
             box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -307,7 +311,197 @@
         }
         .restaurant-details i{
             color: #E61C4C;
+            font-size: x-large;
+            transition: color 0.3s ease;
+
         }
+        .restaurant-details .card:hover{
+        background-color: #E61C4C;     
+        cursor: pointer;   
+        }
+        .restaurant-details .card:hover i,.restaurant-details .card:hover .content{
+        color: #fff; 
+        }
+        .restaurant-details .card{
+            height: 100%;
+            transition: background-color 0.3s ease;
+        
+        }
+        .restaurant-details .card-body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        
+        }
+        .restaurant-details .card-body .content{
+            margin-top: 5px;
+            color: rgba(0,0,0,0.6);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        
+        }
+        .restaurant-title .fa-wheelchair {
+            font-size: larger;
+            color: #e61c4ccc;
+            margin-left:15px;
+            position: relative;
+
+        }
+        .stars-rate{
+            background-color: #F5D4DB;
+            border-radius: 20px;
+            color: #e61c4c;
+            padding: 5px 15px;
+            margin-left: 15px;
+            font-size: small;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        .stars-rate:hover{
+            opacity: 0.8;
+        }
+        .justified-text{
+            text-align: justify;
+        text-justify: inter-word;
+        }
+
+        .restaurant-description{
+            color:rgba(0, 0, 0, 0.8);
+            font-size: 14px;
+            line-height: 160%;
+        }
+
+/*         .restaurant-title i::after {
+        content: "Text that appears on hover";
+        
+        position: absolute;
+        width: 600px;
+        top: 40%;
+        left: 20px;
+        font-size: 12px;
+        color: #1e1e1e;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        }
+
+        .restaurant-title i:hover::after {
+        visibility: visible;
+        opacity: 1;
+        } */
+
+        .restaurant-title{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjusts spacing between items */
+}
+
+.item {
+    flex: 1 1 calc(50% - 10px); /* Two items per row */
+    max-width: calc(50% - 10px);
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+.item img {
+    width: 100%;
+    height: 250px; /* Set a fixed height */
+    object-fit: cover;
+    display: block;
+}
+.review-div{
+}
+.review-div .card{
+    display: inline-block;
+
+    margin: 1rem 0px;
+    background-color:#fcfcfc!important;
+}
+.review-div .card-body .d-flex{
+    justify-content: center;
+    align-items:center;
+}
+.review-div .rate-score{
+    font-size: 48px;
+    margin-right: 15px;
+    color:rgba(0, 0, 0, 0.8);
+}
+.review-div .avis-number{
+    color:rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+}
+.single-avis{
+    margin-bottom:1rem
+}
+.single-avis .circular-avatar{
+    border-radius: 50%;
+    height:50px;
+    width:50px;
+    margin-right: 1rem;
+}
+.single-avis .client-name{
+    font-size: 14px;
+    font-weight: 600;
+}
+.clients-avis{
+    margin: 0 2rem;
+}
+.single-avis .avis-date{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+.avis-content p{
+    margin-top: 1rem;
+    font-size: 14px;
+    color:rgba(0, 0, 0, 0.8);
+}
+
+.avis-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px; /* Space between gallery items */
+    margin-top: 10px; /* Space above the gallery */
+}
+
+.avis-gallery-item {
+    width: 103px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 5px; /* Optional: adds rounded corners */
+    flex: 0 0 auto; /* Prevents items from stretching */
+}
+
+.avis-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the container */
+    display: block;
+}
+.restaurant-details .col-lg-3{
+    margin-bottom:1rem;
+}
+@media (min-width: 768px) {
+    .item {
+        flex: 1 1 calc(33.333% - 10px); /* Three items per row */
+        max-width: calc(33.333% - 10px);
+    }
+}
+
+@media (min-width: 992px) {
+    .item {
+        flex: 1 1 calc(25% - 10px); /* Four items per row */
+        max-width: calc(25% - 10px);
+    }
+}
         /* Responsive styles */
         @media screen and (max-width: 991px) {
             #right_gallery {
@@ -336,7 +530,7 @@
                 </div>
                 <div class="col-12 col-lg-2" id="right_gallery">        
                     <div class="gallery-wrapper">
-                        <div class="gallery d-flex flex-lg-column">
+                        <div class="gallery-header d-flex flex-lg-column">
                             <!-- Gallery items -->
                             <div class="item-wrapper">
                                 <figure class="gallery-item image-holder r-3-2 active transition"></figure>
@@ -382,13 +576,22 @@
         </div>
         <div>
             <div class="row my-3">
-                <div class="col-lg-8">
+                <div class="col-lg-8 order-2 order-lg-1">
+                    <div class="restaurant-title">
                     <h3>
                         Baguette & Baguette
                     </h3>
+                     <div title="Ce restaurant est accessible aux personnes à mobilité réduite">
+                    <i class="fa-solid fa-wheelchair"></i>
+                </div> 
+                <div class="stars-rate">
+                    <i class="fa-solid fa-star"></i>
+                    <span>5</span>
+                </div>
+                </div>
                     <p>Appartenant à <a href="#" style="color: #e61c4c;font-weight: 500; text-decoration: none;">Mohamed Yassine Khabthani</a> à <a href="#" style="color: #e61c4c;font-weight: 500; text-decoration: none;">Paris</a></p>
                 
-                <div class="restaurant-card ">
+                <div class="restaurant-card mb-3">
                     <div class="restaurant-card-menu mb-3">
                         <div class="d-flex flex-row">
                             <a class="restaurant-card-menu-tab active">
@@ -403,41 +606,204 @@
                     <div class="restaurant-details">
                         <div class="row">
                             <div class="col-lg-3 text-center">
-                                <div class="card">
-                                    <div class="card-body">
-                                <i class="fa-solid fa-euro-sign"></i>
+                                <div class="card" title="Le prix par personne dans ce restaurant est d'environ 20 € - 30 €.">
+                                    <div class="card-body" >
+                                    <i class="fa-solid fa-euro-sign"></i>
+                                    <span class="content">20€ - 30€</span>
                                 </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 text-center">
-                                <div class="card">
+                                <div class="card" title="Les horaires de ce restaurant sont de 12:00 - 21:00">
                                     <div class="card-body">
-                                <i class="fa-solid fa-euro-sign"></i>
-                                </div>
+                                    <i class="fa-solid fa-clock"></i>
+                                    <span class="content">12:00 - 21:00</span>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-3 text-center">
-                                <div class="card">
+                                <div class="card" title="La spécialité de ce restaurant est italienne, asiatique">
                                     <div class="card-body">
-                                <i class="fa-solid fa-euro-sign"></i>
-                                </div>
-                                </div>
+                                        <i class="fa-solid fa-utensils"></i>
+                                        <span class="content">Italienne, Asiatique</span>
+                                    </div>
+                                    </div>
                             </div>
                             <div class="col-lg-3 text-center">
-                                <div class="card">
+                                <div class="card" title="Ce restaurant propose une carte complète des vins et des suggestions de boissons.">
                                     <div class="card-body">
-                                <i class="fa-solid fa-euro-sign"></i>
+                                    <i class="fa-solid fa-wine-glass"></i>
+                                    <span class="content">Carte complète</span>
                                 </div>
                                 </div>
                             </div>
                         </div>
+                        <p class="justified-text restaurant-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                        
+
                     </div>
 
 
                 </div>
+                <div class="restaurant-card ">
+                    <h5 class="mb-3">Menu</h5>
+
+                    <div class="container">
+                        <div class="row photos">
+                            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="images/car.jpg" data-lightbox="photos"><img class="img-fluid" src="images/car.jpg"></a></div>
+                            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="images/city.jpg" data-lightbox="photos"><img class="img-fluid" src="images/city.jpg"></a></div>
+                            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="images/deer.jpg" data-lightbox="photos"><img class="img-fluid" src="images/deer.jpg"></a></div>
+                            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="images/food.jpg" data-lightbox="photos"><img class="img-fluid" src="images/food.jpg"></a></div>
+                            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="images/flowers.jpg" data-lightbox="photos"><img class="img-fluid" src="images/flowers.jpg"></a></div>
+                            <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="images/guy.jpg" data-lightbox="photos"><img class="img-fluid" src="images/guy.jpg"></a></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="places-card">
+                <div class="restaurant-card">
+                    <h5 class="mb-3">Avis</h5>
+                    <div class="review-div text-center">
+                        <div class="card">
+                            <div class="card-body ">
+                                <h6 class="text-start">Avis global</h6>
+                                <div class="d-flex">
+                                    <span class="rate-score">4.5</span>
+                                    <div class="d-flex flex-column align-items-start">
+                                        <div>
+                                            <i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star"style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4Caa;"></i>
+    
+                                        </div>
+                                        <span class="avis-number">basé sur 456 avis</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clients-avis">
+                    <div class="single-avis">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                            <img src="images/guy.jpg" class="circular-avatar" alt="">
+                            <div class="d-flex flex-column">
+                                <span class="client-name">Mohamed Yassine Khabthani</span>
+                                <div>
+                                    <i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star"style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4Caa;"></i>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="avis-date">
+                            14 Juin 2024
+                        </div>
+                        </div>
+                        <div class="avis-content">
+                            <p class="justified-text">Lorem ipsum odor amet, consectetuer adipiscing elit. Rutrum dapibus amet, iaculis vulputate nam magna felis. Neque euismod luctus tellus donec dolor potenti. Metus et pellentesque eget conubia dis viverra eu molestie. Facilisi lectus torquent primis per posuere. Laoreet malesuada id senectus nunc ac quisque magnis efficitur.</p>
+                        </div>
+                        <div class="avis-gallery">
+                            <div class="avis-gallery-item">
+                                <a href="images/car.jpg" data-lightbox="avis-photos">
+                                    <img src="images/car.jpg" alt="Image 1">
+                                </a>
+                            </div>
+                            <div class="avis-gallery-item">
+                                <a href="images/guy.jpg" data-lightbox="avis-photos">
+                                    <img src="images/guy.jpg" alt="Image 2">
+                                </a>
+                            </div>
+                            <div class="avis-gallery-item">
+                                <a href="images/flowers.jpg" data-lightbox="avis-photos">
+                                    <img src="images/flowers.jpg" alt="Image 3">
+                                </a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                                        <div class="single-avis">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                            <img src="images/guy.jpg" class="circular-avatar" alt="">
+                            <div class="d-flex flex-column">
+                                <span class="client-name">Mohamed Yassine Khabthani</span>
+                                <div>
+                                    <i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star"style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4Caa;"></i>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="avis-date">
+                            14 Juin 2024
+                        </div>
+                        </div>
+                        <div class="avis-content">
+                            <p class="justified-text">Lorem ipsum odor amet, consectetuer adipiscing elit. Rutrum dapibus amet, iaculis vulputate nam magna felis. Neque euismod luctus tellus donec dolor potenti. Metus et pellentesque eget conubia dis viverra eu molestie. Facilisi lectus torquent primis per posuere. Laoreet malesuada id senectus nunc ac quisque magnis efficitur.</p>
+                        </div>
+                        <div class="avis-gallery">
+                            <div class="avis-gallery-item">
+                                <a href="images/car.jpg" data-lightbox="avis-photos">
+                                    <img src="images/car.jpg" alt="Image 1">
+                                </a>
+                            </div>
+                            <div class="avis-gallery-item">
+                                <a href="images/guy.jpg" data-lightbox="avis-photos">
+                                    <img src="images/guy.jpg" alt="Image 2">
+                                </a>
+                            </div>
+                            <div class="avis-gallery-item">
+                                <a href="images/flowers.jpg" data-lightbox="avis-photos">
+                                    <img src="images/flowers.jpg" alt="Image 3">
+                                </a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="single-avis">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                            <img src="images/guy.jpg" class="circular-avatar" alt="">
+                            <div class="d-flex flex-column">
+                                <span class="client-name">Mohamed Yassine Khabthani</span>
+                                <div>
+                                    <i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4C;"></i><i class="fa-solid fa-star"style="color:#E61C4C;"></i><i class="fa-solid fa-star" style="color:#E61C4Caa;"></i>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="avis-date">
+                            14 Juin 2024
+                        </div>
+                        </div>
+                        <div class="avis-content">
+                            <p class="justified-text">Lorem ipsum odor amet, consectetuer adipiscing elit. Rutrum dapibus amet, iaculis vulputate nam magna felis. Neque euismod luctus tellus donec dolor potenti. Metus et pellentesque eget conubia dis viverra eu molestie. Facilisi lectus torquent primis per posuere. Laoreet malesuada id senectus nunc ac quisque magnis efficitur.</p>
+                        </div>
+                        <div class="avis-gallery">
+                            <div class="avis-gallery-item">
+                                <a href="images/car.jpg" data-lightbox="avis-photos">
+                                    <img src="images/car.jpg" alt="Image 1">
+                                </a>
+                            </div>
+                            <div class="avis-gallery-item">
+                                <a href="images/guy.jpg" data-lightbox="avis-photos">
+                                    <img src="images/guy.jpg" alt="Image 2">
+                                </a>
+                            </div>
+                            <div class="avis-gallery-item">
+                                <a href="images/flowers.jpg" data-lightbox="avis-photos">
+                                    <img src="images/flowers.jpg" alt="Image 3">
+                                </a>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                </div>  
+
+                </div>
+                <div class="col-lg-4 order-1 order-lg-2">
+                    <div class="places-card mb-3">
                         <h5 class="mb-3">Place(s) disponibles(s)</h5>
                         <div>
                             <div class="single-place-card active">
@@ -508,7 +874,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <script>
         var imageHolder = document.getElementById('image_holder');
         var rightGallery = document.getElementById('right_gallery');
@@ -520,7 +886,7 @@
             rightGallery.style.height = imageHolderHeight + "px";
         }
 
-        var gallery = document.querySelector('.gallery');
+        var gallery = document.querySelector('.gallery-header');
         var galleryItems = document.querySelectorAll('.gallery-item');
         var upBtn = document.querySelector('.move-btn.up');
         var downBtn = document.querySelector('.move-btn.down');
@@ -683,6 +1049,46 @@
 
             setInterval(carouselChange, 3000); // Change image every 3 seconds
         }
+
+        $(function() {
+  $(".img-w").each(function() {
+    $(this).wrap("<div class='img-c'></div>")
+    let imgSrc = $(this).find("img").attr("src");
+     $(this).css('background-image', 'url(' + imgSrc + ')');
+  })
+            
+  
+  $(".img-c").click(function() {
+    let w = $(this).outerWidth()
+    let h = $(this).outerHeight()
+    let x = $(this).offset().left
+    let y = $(this).offset().top
+    
+    
+    $(".active").not($(this)).remove()
+    let copy = $(this).clone();
+    copy.insertAfter($(this)).height(h).width(w).delay(500).addClass("active")
+    $(".active").css('top', y - 8);
+    $(".active").css('left', x - 8);
+    
+      setTimeout(function() {
+    copy.addClass("positioned")
+  }, 0)
+    
+  }) 
+  
+  
+
+  
+})
+
+$(document).on("click", ".img-c.active", function() {
+  let copy = $(this)
+  copy.removeClass("positioned active").addClass("postactive")
+  setTimeout(function() {
+    copy.remove();
+  }, 500)
+})
     </script>
 </body>
 </html>

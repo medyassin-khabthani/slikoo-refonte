@@ -638,9 +638,15 @@ i[class^="fa-solid fa-chevron"]{
   outline: none;
   border-radius: 5px;
 }
+input[type="date"],
+input[type="time"]{
+  color-scheme: dark;
+}
 ::-webkit-calendar-picker-indicator{
-  background-color: #ffffff;
+  background-color: #e61c4c;
+  color: white;
   padding: 5px;
+
   cursor: pointer;
   border-radius: 3px;
 }
