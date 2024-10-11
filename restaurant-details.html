@@ -418,8 +418,6 @@
     object-fit: cover;
     display: block;
 }
-.review-div{
-}
 .review-div .card{
     display: inline-block;
 
@@ -488,6 +486,23 @@
 }
 .restaurant-details .col-lg-3{
     margin-bottom:1rem;
+}
+.gerant-img{
+   height: 80px;
+   width:80px; 
+   border-radius: 50%;
+}
+.gerant-link{
+    text-decoration: none;
+    color: #1e1e1e;
+}
+.gerant-link:hover{
+    color: #e61c4c;
+}
+.gerant-name-pic span{
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: 600;
 }
 @media (min-width: 768px) {
     .item {
@@ -594,16 +609,17 @@
                 <div class="restaurant-card mb-3">
                     <div class="restaurant-card-menu mb-3">
                         <div class="d-flex flex-row">
-                            <a class="restaurant-card-menu-tab active">
+                            <a id="tab-restaurant" class="restaurant-card-menu-tab active">
                                 Le restaurant
                             </a>
-                            <a class="restaurant-card-menu-tab">
+                            <a id="tab-gerant" class="restaurant-card-menu-tab">
                                 Le gérant
                             </a>
                         </div>
 
                     </div>
                     <div class="restaurant-details">
+                         <div id="restaurantInfo">
                         <div class="row">
                             <div class="col-lg-3 text-center">
                                 <div class="card" title="Le prix par personne dans ce restaurant est d'environ 20 € - 30 €.">
@@ -639,14 +655,25 @@
                             </div>
                         </div>
                         <p class="justified-text restaurant-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div> 
+                    <div id="gerantInfo"  style="display: none;">
+                        <a href="#" class="gerant-link ">
+                            <div class="d-flex flex-row gerant-name-pic align-items-center">
+                            <img src="images/guy.jpg" class="gerant-img" alt="image du gérant">
+                                <span>Mohamed Yassine Khabthani</span>
+                        </div>
+                        </a>
+                        <p class="justified-text restaurant-description mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                         
+                    </div>
 
                     </div>
 
 
                 </div>
                 <div class="restaurant-card ">
+                    
                     <h5 class="mb-3">Menu</h5>
 
                     <div class="container">
@@ -703,17 +730,17 @@
                         </div>
                         <div class="avis-gallery">
                             <div class="avis-gallery-item">
-                                <a href="images/car.jpg" data-lightbox="avis-photos">
+                                <a href="images/car.jpg" data-lightbox="avis-photos1">
                                     <img src="images/car.jpg" alt="Image 1">
                                 </a>
                             </div>
                             <div class="avis-gallery-item">
-                                <a href="images/guy.jpg" data-lightbox="avis-photos">
+                                <a href="images/guy.jpg" data-lightbox="avis-photos1">
                                     <img src="images/guy.jpg" alt="Image 2">
                                 </a>
                             </div>
                             <div class="avis-gallery-item">
-                                <a href="images/flowers.jpg" data-lightbox="avis-photos">
+                                <a href="images/flowers.jpg" data-lightbox="avis-photos1">
                                     <img src="images/flowers.jpg" alt="Image 3">
                                 </a>
                             </div>
@@ -742,17 +769,17 @@
                         </div>
                         <div class="avis-gallery">
                             <div class="avis-gallery-item">
-                                <a href="images/car.jpg" data-lightbox="avis-photos">
+                                <a href="images/car.jpg" data-lightbox="avis-photos2">
                                     <img src="images/car.jpg" alt="Image 1">
                                 </a>
                             </div>
                             <div class="avis-gallery-item">
-                                <a href="images/guy.jpg" data-lightbox="avis-photos">
+                                <a href="images/guy.jpg" data-lightbox="avis-photos2">
                                     <img src="images/guy.jpg" alt="Image 2">
                                 </a>
                             </div>
                             <div class="avis-gallery-item">
-                                <a href="images/flowers.jpg" data-lightbox="avis-photos">
+                                <a href="images/flowers.jpg" data-lightbox="avis-photos2">
                                     <img src="images/flowers.jpg" alt="Image 3">
                                 </a>
                             </div>
@@ -781,17 +808,17 @@
                         </div>
                         <div class="avis-gallery">
                             <div class="avis-gallery-item">
-                                <a href="images/car.jpg" data-lightbox="avis-photos">
+                                <a href="images/car.jpg" data-lightbox="avis-photos3">
                                     <img src="images/car.jpg" alt="Image 1">
                                 </a>
                             </div>
                             <div class="avis-gallery-item">
-                                <a href="images/guy.jpg" data-lightbox="avis-photos">
+                                <a href="images/guy.jpg" data-lightbox="avis-photos3">
                                     <img src="images/guy.jpg" alt="Image 2">
                                 </a>
                             </div>
                             <div class="avis-gallery-item">
-                                <a href="images/flowers.jpg" data-lightbox="avis-photos">
+                                <a href="images/flowers.jpg" data-lightbox="avis-photos3">
                                     <img src="images/flowers.jpg" alt="Image 3">
                                 </a>
                             </div>
@@ -876,6 +903,53 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Get references to the tabs
+          const tabRestaurant = document.getElementById('tab-restaurant');
+          const tabGerant = document.getElementById('tab-gerant');
+      
+          // Get references to the content divs
+          const restaurantInfo = document.getElementById('restaurantInfo');
+          const gerantInfo = document.getElementById('gerantInfo');
+      
+          // Function to show restaurant info and hide gerant info
+          function showRestaurantInfo() {
+            // Show restaurant info
+            restaurantInfo.style.display = 'block';
+            // Hide gerant info
+            gerantInfo.style.display = 'none';
+            // Set active class
+            tabRestaurant.classList.add('active');
+            tabGerant.classList.remove('active');
+          }
+      
+          // Function to show gerant info and hide restaurant info
+          function showGerantInfo() {
+            // Show gerant info
+            gerantInfo.style.display = 'block';
+            // Hide restaurant info
+            restaurantInfo.style.display = 'none';
+            // Set active class
+            tabGerant.classList.add('active');
+            tabRestaurant.classList.remove('active');
+          }
+      
+          // Add click event listeners to the tabs
+          tabRestaurant.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            showRestaurantInfo();
+          });
+      
+          tabGerant.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            showGerantInfo();
+          });
+        });
+      </script>
+      
+   <script>
+
+        
         var imageHolder = document.getElementById('image_holder');
         var rightGallery = document.getElementById('right_gallery');
         var featured = document.querySelector('.featured-item');

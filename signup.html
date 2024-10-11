@@ -218,6 +218,15 @@
                     </p>
                 </div>  
                 </div>
+                <div class="text-center mb-3">
+                  <p for="exampleFormControlInput1" class="form-label">Ajouter des images pour votre menu</p>
+                  <div style="cursor: pointer;">
+                      <p class="cont-menu">
+                          <img id="previewMultipleMenu" src="images/input_image_restaurant.png" style="height: 150px; width: 150px; object-fit: cover; object-position: center;" />
+                          <input multiple accept="image/*" onchange="loadMenuFiles(event)" type="file" id="fileTagMultipleMenu" style="display: none;" />
+                      </p>
+                  </div>  
+              </div>
                 </div>
                 <h5>Informations d'authentification</h5>
                 <div class="row">
@@ -389,6 +398,29 @@
   }
 };
 
+/* Multiple file upload for menu images */
+const previewMultipleMenu = document.getElementById('previewMultipleMenu');
+const fileTagMultipleMenu = document.getElementById('fileTagMultipleMenu');
+
+previewMultipleMenu.addEventListener('click', function() {
+    fileTagMultipleMenu.click();
+});
+
+function loadMenuFiles(event) {
+    const container = document.querySelector('.cont-menu');
+
+    for (let i = 0; i < event.target.files.length; i++) {
+        const image = document.createElement('img');
+        image.src = URL.createObjectURL(event.target.files[i]);
+        image.width = 150;
+        image.height = 150;
+        image.style.margin = "5px";
+        image.style.objectFit = "cover";
+        image.style.objectPosition = "center";
+        image.style.borderRadius = "15px";
+        container.appendChild(image);
+    }
+};
 
     </script>
   </body>
