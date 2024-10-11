@@ -370,25 +370,22 @@
                   <h5>Vous cherchez plutôt quoi ?</h5> <!--MAKE IT CHECKBOX-->
                   <div class="d-flex flex-row flex-wrap">
                     <div class="checkbox-slikoo">
-                      <input type="radio" id="Rencontre" name="search" value="Rencontre" onchange="toggleRadioBackground(this)" />
-                      <label for="Rencontre" class="d-flex align-items-center"><img src="images/people.svg" class="mx-1 icon"/>Rencontre</label>
+                      <input type="checkbox" id="Rencontre" name="Rencontre"  />
+                      <label for="Rencontre"><img src="images/people.svg" class="mx-1 icon"/>Rencontre</label>
                     </div>
                   
                     <div class="checkbox-slikoo">
-                      <input type="radio" id="Amitie" name="search" value="Amitié" onchange="toggleRadioBackground(this)" />
-                      <label for="Amitie" class="d-flex align-items-center"><img src="images/smile.svg" class="mx-1 icon"/>Amitié</label>
+                      <input type="checkbox" id="Amitie" name="Amitié"  />
+                      <label for="Amitie"><img src="images/smile.svg" class="mx-1 icon"/>Amitié</label>
                     </div>
-
                     <div class="checkbox-slikoo">
-                      <input type="radio" id="Date" name="search" value="Date" onchange="toggleRadioBackground(this)" />
-                      <label for="Date" class="d-flex align-items-center"><img src="images/love.svg" class="mx-1 icon"/>Date</label>
+                      <input type="checkbox" id="Date" name="Date"  />
+                      <label for="Date"><img src="images/love.svg" class="mx-1 icon"/>Date</label>
                     </div>
-
                     <div class="checkbox-slikoo">
-                      <input type="radio" id="professionel" name="search" value="Réseau professionel" onchange="toggleRadioBackground(this)" />
-                      <label for="professionel" class="d-flex align-items-center"><img src="images/professional.svg" class="mx-1 icon"/>Réseau professionel</label>
+                      <input type="checkbox" id="professional" name="Réseau professionel"  />
+                      <label for="professional"><img src="images/professional.svg" class="mx-1 icon"/>Réseau professionel</label>
                     </div>
-
                   </div>
                 </div>
                 <div class="my-3 section" data-section-id="10">
@@ -463,171 +460,154 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // **Function Definitions**
+  // **Function Definitions**
 
-    //Tracking Scroll Progress Bar
-/*     window.onscroll = function() {
-      var constraintFixed = document.getElementById("constraintFixed");
-      var progressBar = document.getElementById("progressBar");
-    const viewportHeight = window.innerHeight;
-    constraintFixedHeight = constraintFixed.offsetHeight ;
-
-    if(window.pageYOffset + viewportHeight > constraintFixedHeight + 80){
-      progressBar.style.visibility = "hidden";
-    }else{
-      progressBar.style.visibility = "visible";
-
+  // Toggle background for checkboxes
+  function toggleBackground(checkbox) {
+    const container = checkbox.parentElement;
+    if (checkbox.checked) {
+      container.classList.add('checked');
+    } else {
+      container.classList.remove('checked');
     }
-      }; */
+  }
 
+  // Toggle background for radio buttons
+  function toggleRadioBackground(radio) {
+    // Get all radio buttons with the same name
+    const allRadios = document.querySelectorAll(`input[name="${radio.name}"]`);
 
+    // Loop through all radios and remove the 'checked' class from their containers
+    allRadios.forEach((r) => {
+      const container = r.parentElement;
+      container.classList.remove('checked');
+    });
 
-    // Toggle background for checkboxes
-    function toggleBackground(checkbox) {
-      const container = checkbox.parentElement;
-      if (checkbox.checked) {
-        container.classList.add('checked');
-      } else {
-        container.classList.remove('checked');
-      }
+    // Add the 'checked' class to the container of the selected radio
+    const selectedContainer = radio.parentElement;
+    if (radio.checked) {
+      selectedContainer.classList.add('checked');
     }
+  }
 
-    // Toggle background for radio buttons
-    function toggleRadioBackground(radio) {
-      // Get all radio buttons with the same name
-      const allRadios = document.querySelectorAll(`input[name="${radio.name}"]`);
+  // **Progress Bar and Form Completion Tracking**
 
-      // Loop through all radios and remove the 'checked' class from their containers
-      allRadios.forEach((r) => {
-        const container = r.parentElement;
-        container.classList.remove('checked');
-      });
+  // Object to track the completion status of each section
+  const formCompletion = {
+    totalSections: 10,
+    sectionsCompleted: {
+      typesCuisine: false,
+      age: false,
+      fumeur: false,
+      alcool: false,
+      allergiesAlimentaires: false,
+      centresInteret: false,
+      langues: false,
+      genreRecherche: false,
+      vousCherchez: false,
+      socialMedia: false,
+    },
+  };
 
-      // Add the 'checked' class to the container of the selected radio
-      const selectedContainer = radio.parentElement;
-      if (radio.checked) {
-        selectedContainer.classList.add('checked');
-      }
-    }
+  // Function to update the progress bar
+  function updateProgressBar() {
+    const completedSections = Object.values(formCompletion.sectionsCompleted).filter(Boolean).length;
+    const percentage = Math.round((completedSections / formCompletion.totalSections) * 100);
 
-    // **Progress Bar and Form Completion Tracking**
-
-    // Object to track the completion status of each section
-    const formCompletion = {
-      totalSections: 10,
-      sectionsCompleted: {
-        typesCuisine: false,
-        age: false,
-        fumeur: false,
-        alcool: false,
-        allergiesAlimentaires: false,
-        centresInteret: false,
-        langues: false,
-        genreRecherche: false,
-        vousCherchez: false,
-        socialMedia: false,
-      },
-    };
-
-    // Function to update the progress bar
-    function updateProgressBar() {
-      const completedSections = Object.values(formCompletion.sectionsCompleted).filter(Boolean).length;
-      const percentage = Math.round((completedSections / formCompletion.totalSections) * 100);
-
-      // Update the CSS variable --progress on the .circular-progress element
-      const circularProgress = document.querySelector('.circular-progress');
-      if (circularProgress) {
-        circularProgress.style.setProperty('--progress', percentage);
-      }
-
-      // Update the percentage text
-      const progressBarSpan = document.querySelector('.progress-bar-span');
-      if (progressBarSpan) {
-        progressBarSpan.textContent = percentage + '%';
-      }
+    // Update the CSS variable --progress on the .circular-progress element
+    const circularProgress = document.querySelector('.circular-progress');
+    if (circularProgress) {
+      circularProgress.style.setProperty('--progress', percentage);
     }
 
-    // **Section Check Functions and Event Listeners**
-
-    // 1. Check 'Types de cuisine' section
-    function checkTypesCuisine() {
-      const checkboxes = document.querySelectorAll(
-        'input[name="Italienne"], input[name="Asiatique"], input[name="Végetarienne"], input[name="Je préfère ne pas répondre"]'
-      );
-      const isChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
-      formCompletion.sectionsCompleted.typesCuisine = isChecked;
-      updateProgressBar();
+    // Update the percentage text
+    const progressBarSpan = document.querySelector('.progress-bar-span');
+    if (progressBarSpan) {
+      progressBarSpan.textContent = percentage + '%';
     }
-    const typesCuisineCheckboxes = document.querySelectorAll(
+  }
+
+  // **Section Check Functions and Event Listeners**
+
+  // 1. Check 'Types de cuisine' section
+  function checkTypesCuisine() {
+    const checkboxes = document.querySelectorAll(
       'input[name="Italienne"], input[name="Asiatique"], input[name="Végetarienne"], input[name="Je préfère ne pas répondre"]'
     );
-    typesCuisineCheckboxes.forEach((checkbox) => {
-      checkbox.addEventListener('change', () => {
-        toggleBackground(checkbox);
-        checkTypesCuisine();
-      });
+    const isChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
+    formCompletion.sectionsCompleted.typesCuisine = isChecked;
+    updateProgressBar();
+  }
+  const typesCuisineCheckboxes = document.querySelectorAll(
+    'input[name="Italienne"], input[name="Asiatique"], input[name="Végetarienne"], input[name="Je préfère ne pas répondre"]'
+  );
+  typesCuisineCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+      toggleBackground(checkbox);
+      checkTypesCuisine();
     });
+  });
 
-    // 2. Check 'Âge' section
-    function checkAge() {
-      const radios = document.querySelectorAll('input[name="age"]');
-      const isChecked = Array.from(radios).some((radio) => radio.checked);
-      formCompletion.sectionsCompleted.age = isChecked;
-      updateProgressBar();
-    }
-    const ageRadios = document.querySelectorAll('input[name="age"]');
-    ageRadios.forEach((radio) => {
-      radio.addEventListener('change', () => {
-        toggleRadioBackground(radio);
-        checkAge();
-      });
+  // 2. Check 'Âge' section
+  function checkAge() {
+    const radios = document.querySelectorAll('input[name="age"]');
+    const isChecked = Array.from(radios).some((radio) => radio.checked);
+    formCompletion.sectionsCompleted.age = isChecked;
+    updateProgressBar();
+  }
+  const ageRadios = document.querySelectorAll('input[name="age"]');
+  ageRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      toggleRadioBackground(radio);
+      checkAge();
     });
+  });
 
-    // 3. Check 'Fumeur' section
-    function checkFumeur() {
-      const radios = document.querySelectorAll('input[name="fumeur"]');
-      const isChecked = Array.from(radios).some((radio) => radio.checked);
-      formCompletion.sectionsCompleted.fumeur = isChecked;
-      updateProgressBar();
-    }
-    const fumeurRadios = document.querySelectorAll('input[name="fumeur"]');
-    fumeurRadios.forEach((radio) => {
-      radio.addEventListener('change', () => {
-        toggleRadioBackground(radio);
-        checkFumeur();
-      });
+  // 3. Check 'Fumeur' section
+  function checkFumeur() {
+    const radios = document.querySelectorAll('input[name="fumeur"]');
+    const isChecked = Array.from(radios).some((radio) => radio.checked);
+    formCompletion.sectionsCompleted.fumeur = isChecked;
+    updateProgressBar();
+  }
+  const fumeurRadios = document.querySelectorAll('input[name="fumeur"]');
+  fumeurRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      toggleRadioBackground(radio);
+      checkFumeur();
     });
+  });
 
-    // 4. Check 'Alcool' section
-    function checkAlcool() {
-      const radios = document.querySelectorAll('input[name="alcool"]');
-      const isChecked = Array.from(radios).some((radio) => radio.checked);
-      formCompletion.sectionsCompleted.alcool = isChecked;
-      updateProgressBar();
-    }
-    const alcoolRadios = document.querySelectorAll('input[name="alcool"]');
-    alcoolRadios.forEach((radio) => {
-      radio.addEventListener('change', () => {
-        toggleRadioBackground(radio);
-        checkAlcool();
-      });
+  // 4. Check 'Alcool' section
+  function checkAlcool() {
+    const radios = document.querySelectorAll('input[name="alcool"]');
+    const isChecked = Array.from(radios).some((radio) => radio.checked);
+    formCompletion.sectionsCompleted.alcool = isChecked;
+    updateProgressBar();
+  }
+  const alcoolRadios = document.querySelectorAll('input[name="alcool"]');
+  alcoolRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      toggleRadioBackground(radio);
+      checkAlcool();
     });
+  });
 
-    // 5. Check 'Allergies alimentaires' section
-    function checkAllergiesAlimentaires() {
-      const tagsInput = document.querySelector('.custom-select-container[data-name="allergies"] .tags_input');
-      const value = tagsInput ? tagsInput.value.trim() : '';
-      formCompletion.sectionsCompleted.allergiesAlimentaires = value !== '';
-      updateProgressBar();
-    }
+  // 5. Check 'Allergies alimentaires' section
+  function checkAllergiesAlimentaires() {
+    const tagsInput = document.querySelector('.custom-select-container[data-name="allergies"] .tags_input');
+    const value = tagsInput ? tagsInput.value.trim() : '';
+    formCompletion.sectionsCompleted.allergiesAlimentaires = value !== '';
+    updateProgressBar();
+  }
 
-    // 6. Check 'Centres d’intérêt' section
-    function checkCentresInteret() {
-      const tagsInput = document.querySelector('.custom-select-container[data-name="interet"] .tags_input');
-      const value = tagsInput ? tagsInput.value.trim() : '';
-      formCompletion.sectionsCompleted.centresInteret = value !== '';
-      updateProgressBar();
-    }
+  // 6. Check 'Centres d’intérêt' section
+  function checkCentresInteret() {
+    const tagsInput = document.querySelector('.custom-select-container[data-name="interet"] .tags_input');
+    const value = tagsInput ? tagsInput.value.trim() : '';
+    formCompletion.sectionsCompleted.centresInteret = value !== '';
+    updateProgressBar();
+  }
 
     // **Custom Multi-Select Components**
 
@@ -813,95 +793,95 @@
       updateSelectedOptions();
     });
 
-    // 7. Check 'Langues' section
-    function checkLangues() {
-      const checkboxes = document.querySelectorAll('.checkbox-slikoo.language input[type="checkbox"]');
-      const isChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
-      formCompletion.sectionsCompleted.langues = isChecked;
-      updateProgressBar();
-    }
-    const languesCheckboxes = document.querySelectorAll('.checkbox-slikoo.language input[type="checkbox"]');
-    languesCheckboxes.forEach((checkbox) => {
-      checkbox.addEventListener('change', () => {
-        toggleBackground(checkbox);
-        checkLangues();
-      });
+
+  // 7. Check 'Langues' section
+  function checkLangues() {
+    const checkboxes = document.querySelectorAll('.checkbox-slikoo.language input[type="checkbox"]');
+    const isChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
+    formCompletion.sectionsCompleted.langues = isChecked;
+    updateProgressBar();
+  }
+  const languesCheckboxes = document.querySelectorAll('.checkbox-slikoo.language input[type="checkbox"]');
+  languesCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+      toggleBackground(checkbox);
+      checkLangues();
     });
-
-    // 8. Check 'Genre recherché' section
-    function checkGenreRecherche() {
-      const radios = document.querySelectorAll('input[name="gender"]');
-      const isChecked = Array.from(radios).some((radio) => radio.checked);
-      formCompletion.sectionsCompleted.genreRecherche = isChecked;
-      updateProgressBar();
-    }
-    const genreRadios = document.querySelectorAll('input[name="gender"]');
-    genreRadios.forEach((radio) => {
-      radio.addEventListener('change', () => {
-        toggleRadioBackground(radio);
-        checkGenreRecherche();
-      });
-    });
-
-    // 9. Check 'Vous cherchez plutôt quoi ?' section
-    function checkVousCherchez() {
-      const radios = document.querySelectorAll('input[name="search"]');
-      const isChecked = Array.from(radios).some((radio) => radio.checked);
-      formCompletion.sectionsCompleted.vousCherchez = isChecked;
-      updateProgressBar();
-    }
-    const vousCherchezRadios = document.querySelectorAll('input[name="search"]');
-    vousCherchezRadios.forEach((radio) => {
-      radio.addEventListener('change', () => {
-        toggleRadioBackground(radio);
-        checkVousCherchez();
-      });
-    });
-
-    // 10. Check 'Social Media' section
-    function checkSocialMedia() {
-      const inputs = document.querySelectorAll('.social-input');
-      const isFilled = Array.from(inputs).some((input) => input.value.trim() !== '');
-      formCompletion.sectionsCompleted.socialMedia = isFilled;
-      updateProgressBar();
-    }
-    const socialInputs = document.querySelectorAll('.social-input');
-    socialInputs.forEach(function (input) {
-      const wrapper = input.parentElement;
-      const icon = wrapper.querySelector('.clear-icon');
-
-      input.addEventListener('input', function () {
-        if (input.value.trim() !== '') {
-          wrapper.classList.add('filled');
-        } else {
-          wrapper.classList.remove('filled');
-        }
-        checkSocialMedia();
-      });
-
-      icon.addEventListener('click', function () {
-        input.value = '';
-        wrapper.classList.remove('filled');
-        input.focus(); // Optional: keep focus on the input
-        checkSocialMedia();
-      });
-    });
-
-    // **Initial Check on Page Load**
-    checkTypesCuisine();
-    checkAge();
-    checkFumeur();
-    checkAlcool();
-    checkAllergiesAlimentaires();
-    checkCentresInteret();
-    checkLangues();
-    checkGenreRecherche();
-    checkVousCherchez();
-    checkSocialMedia();
   });
+
+  // 8. Check 'Genre recherché' section
+  function checkGenreRecherche() {
+    const radios = document.querySelectorAll('input[name="gender"]');
+    const isChecked = Array.from(radios).some((radio) => radio.checked);
+    formCompletion.sectionsCompleted.genreRecherche = isChecked;
+    updateProgressBar();
+  }
+  const genreRadios = document.querySelectorAll('input[name="gender"]');
+  genreRadios.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      toggleRadioBackground(radio);
+      checkGenreRecherche();
+    });
+  });
+
+  // 9. **Updated** Check 'Vous cherchez plutôt quoi ?' section
+  function checkVousCherchez() {
+    const checkboxes = document.querySelectorAll('div.section[data-section-id="9"] input[type="checkbox"]');
+    const isChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
+    formCompletion.sectionsCompleted.vousCherchez = isChecked;
+    updateProgressBar();
+  }
+  const vousCherchezCheckboxes = document.querySelectorAll('div.section[data-section-id="9"] input[type="checkbox"]');
+  vousCherchezCheckboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', () => {
+      toggleBackground(checkbox);
+      checkVousCherchez();
+    });
+  });
+
+  // 10. Check 'Social Media' section
+  function checkSocialMedia() {
+    const inputs = document.querySelectorAll('.social-input');
+    const isFilled = Array.from(inputs).some((input) => input.value.trim() !== '');
+    formCompletion.sectionsCompleted.socialMedia = isFilled;
+    updateProgressBar();
+  }
+  const socialInputs = document.querySelectorAll('.social-input');
+  socialInputs.forEach(function (input) {
+    const wrapper = input.parentElement;
+    const icon = wrapper.querySelector('.clear-icon');
+
+    input.addEventListener('input', function () {
+      if (input.value.trim() !== '') {
+        wrapper.classList.add('filled');
+      } else {
+        wrapper.classList.remove('filled');
+      }
+      checkSocialMedia();
+    });
+
+    icon.addEventListener('click', function () {
+      input.value = '';
+      wrapper.classList.remove('filled');
+      input.focus(); // Optional: keep focus on the input
+      checkSocialMedia();
+    });
+  });
+
+  // **Initial Check on Page Load**
+  checkTypesCuisine();
+  checkAge();
+  checkFumeur();
+  checkAlcool();
+  checkAllergiesAlimentaires();
+  checkCentresInteret();
+  checkLangues();
+  checkGenreRecherche();
+  checkVousCherchez();
+  checkSocialMedia();
+});
+
 </script>
-
-
 
 
   </body>

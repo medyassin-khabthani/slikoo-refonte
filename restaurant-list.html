@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Slikoo - Agenda</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <style>
+        /* Carousel Styles */
+        #restaurantCarousel,
+        #restaurantCarousel2 {
+            position: relative;
+        }
+        .carousel-inner {
+            display: flex;
+        }
+        .carousel-item {
+            transition: transform 0.5s ease-in-out; /* Add animation */
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(0,0,0,0.6);
+            border-radius: 50%;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        .carousel-control-prev {
+            left: -60px;
+        }
+        .carousel-control-next {
+            right: -60px;
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-size: 60%;
+        }
+        .carousel-indicators [data-bs-target] {
+            background-color: #e61c4c;
+            height: 3px;
+        }
+        .carousel-indicators {
+            position: static;
+            margin-top: 10px;
+        }
+
+        /* Card Styles */
+        .card-img-overlay {
+            background-color: rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        .card-body {
+            background-color: #FDFAFA;
+            z-index: 1;
+        }
+        .card-restaurant {
+            text-decoration: none;
+        }
+        .card {
+            border-radius: 25px;
+            overflow: hidden;
+            height: 100%;
+        }
+        .card .card-img {
+            height: 300px;
+            object-fit: cover;
+        }
+        .card-rate {
+            background-color: #fad9e0;
+            padding: 7px 15px;
+            display: inline-block;
+            border-radius: 15px;
+            color: #e61c4c;
+            font-weight: 600;
+        }
+        .card-rate i {
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        .card-restaurant .location-text {
+            margin-left: 5px;
+        }
+        .card-restaurant .icon-chair {
+            filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(688%) hue-rotate(180deg) brightness(87%) contrast(102%);
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+        }
+        .card-restaurant .card-body {
+            color: #1e1e1e;
+        }
+        .card-restaurant .price {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .card-restaurant .client {
+            font-size: 14px;
+            font-weight: 600;
+            color: #b3b3b3;
+        }
+        .card-restaurant .nbr {
+            font-weight: 600;
+        }
+        .blind-dining-card .card-img {
+            height: 100%;
+            width: auto;
+        }
+        .blind-dining-card {
+            padding: 0.5rem 2rem;
+        }
+        .blind-dining-card h5 {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        .blind-dining-card:hover h5 {
+            color: #fad9e0;
+        }
+        .blind-dining-card:hover .card-img-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .blind-dining-card .card-img-overlay {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .location-link {
+            text-decoration: none;
+            color: #e61c4c;
+        }
+        .location-link:hover {
+            text-decoration: none;
+            color: #e61c4ccc;
+        }
+    </style>
+</head>
+<body class="p-5" style="background-color:#FDFAFA;">
+    <div class="container">
+        <div class="row mb-3">
+            <h4>Des expériences qui peuvent vous intéresser</h4>
+            <div class="col-lg-3">
+                <a href="#" style="text-decoration: none;">
+                    <div class="card bg-light text-white blind-dining-card">
+                        <img class="card-img" src="images/blind_dining.png" alt="Card image">
+                        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+                          <h5 class="card-title">Dîner à l'aveugle</h5>
+                        </div>
+                      </div>
+                </a>
+            </div>
+        </div>
+        <h4>Des restaurants disponibles cette semaine</h4>
+
+        <!-- First Carousel Start -->
+        <div id="restaurantCarousel" class="carousel slide" data-bs-ride="carousel">
+ 
+
+            <div class="carousel-inner">
+                <!-- Carousel Items -->
+                <!-- Slides will be added dynamically -->
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#restaurantCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#restaurantCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
+                       <!-- Carousel Indicators -->
+                       <div class="carousel-indicators">
+                        <!-- Indicators will be added dynamically -->
+                    </div>
+        </div>
+        <!-- First Carousel End -->
+
+        <h4>Des restaurants disponibles à <a href="#" class="location-link">Paris</a></h4>
+
+        <!-- Second Carousel Start -->
+        <div id="restaurantCarousel2" class="carousel slide" data-bs-ride="carousel">
+
+
+            <div class="carousel-inner">
+                <!-- Carousel Items -->
+                <!-- Slides will be added dynamically -->
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#restaurantCarousel2" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Précédent</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#restaurantCarousel2" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Suivant</span>
+            </button>
+                        <!-- Carousel Indicators -->
+                        <div class="carousel-indicators">
+                            <!-- Indicators will be added dynamically -->
+                        </div>
+        </div>
+        <!-- Second Carousel End -->
+    </div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Script -->
+    <script>
+        // Data for the first carousel
+        const cardsData = [
+            {
+                image: 'images/deer.jpg',
+                rate: '4.5',
+                location: 'Paris',
+                places: '2/4',
+                price: '10.00 €',
+            },
+            {
+                image: 'images/guy.jpg',
+                rate: '4.7',
+                location: 'Lyon',
+                places: '3/5',
+                price: '12.00 €',
+            },
+            {
+                image: 'images/flowers.jpg',
+                rate: '4.2',
+                location: 'Marseille',
+                places: '1/2',
+                price: '15.00 €',
+            },
+            {
+                image: 'images/car.jpg',
+                rate: '4.8',
+                location: 'Nice',
+                places: '4/6',
+                price: '18.00 €',
+            },
+            {
+                image: 'images/city.jpg',
+                rate: '4.6',
+                location: 'Bordeaux',
+                places: '2/3',
+                price: '11.00 €',
+            },
+            {
+                image: 'images/food.jpg',
+                rate: '4.3',
+                location: 'Lille',
+                places: '5/5',
+                price: '14.00 €',
+            },
+            {
+                image: 'images/night.jpg',
+                rate: '4.9',
+                location: 'Strasbourg',
+                places: '3/4',
+                price: '16.00 €',
+            },
+            {
+                image: 'images/landscape.jpg',
+                rate: '4.4',
+                location: 'Toulouse',
+                places: '2/2',
+                price: '13.00 €',
+            },
+        ];
+
+        // Data for the second carousel
+        const cardsData2 = [
+            {
+                image: 'images/deer.jpg',
+                rate: '4.5',
+                location: 'Paris',
+                places: '2/4',
+                price: '10.00 €',
+            },
+            {
+                image: 'images/guy.jpg',
+                rate: '4.7',
+                location: 'Lyon',
+                places: '3/5',
+                price: '12.00 €',
+            },
+            {
+                image: 'images/flowers.jpg',
+                rate: '4.2',
+                location: 'Marseille',
+                places: '1/2',
+                price: '15.00 €',
+            },
+            {
+                image: 'images/car.jpg',
+                rate: '4.8',
+                location: 'Nice',
+                places: '4/6',
+                price: '18.00 €',
+            },
+            {
+                image: 'images/city.jpg',
+                rate: '4.6',
+                location: 'Bordeaux',
+                places: '2/3',
+                price: '11.00 €',
+            },
+            {
+                image: 'images/food.jpg',
+                rate: '4.3',
+                location: 'Lille',
+                places: '5/5',
+                price: '14.00 €',
+            },
+            {
+                image: 'images/night.jpg',
+                rate: '4.9',
+                location: 'Strasbourg',
+                places: '3/4',
+                price: '16.00 €',
+            },
+            {
+                image: 'images/landscape.jpg',
+                rate: '4.4',
+                location: 'Toulouse',
+                places: '2/2',
+                price: '13.00 €',
+            },
+        ];
+
+        // Function to create carousel items
+        function createCarouselItems(carouselId, indicatorsContainer, data) {
+            const carouselInner = document.querySelector(`#${carouselId} .carousel-inner`);
+            const carouselIndicators = document.querySelector(`#${carouselId} .carousel-indicators`);
+            let slideIndex = 0;
+            const cardsPerSlide = getCardsPerSlide();
+
+            for (let i = 0; i < data.length; i += cardsPerSlide) {
+                const carouselItem = document.createElement('div');
+                carouselItem.classList.add('carousel-item');
+                if (i === 0) carouselItem.classList.add('active');
+
+                const row = document.createElement('div');
+                row.classList.add('row', 'gx-3'); // Add gap between cards
+
+                for (let j = i; j < i + cardsPerSlide && j < data.length; j++) {
+                    const cardData = data[j];
+                    const col = document.createElement('div');
+                    col.classList.add('col-lg-3', 'col-md-6', 'col-sm-6');
+
+                    col.innerHTML = `
+                        <a href="#" class="card-restaurant">
+                            <div class="card text-white">
+                                <img class="card-img" src="${cardData.image}" alt="Card image">
+                                <div class="card-img-overlay">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="card-rate">
+                                            <div class="d-flex flex-row justify-content-center align-items-center">
+                                                <span class="rate-score">${cardData.rate}</span>
+                                                <i class="fa-solid fa-star"></i>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex text-white align-items-center">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <span class="location-text">${cardData.location}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <div class="d-flex flex-row align-items-center">
+                                            <img src="images/chair.svg" class="icon-chair" alt="places">
+                                            <span class="nbr">${cardData.places}</span>  
+                                        </div>
+                                        <div>
+                                            <span class="price">${cardData.price} /</span><span class="client"> client</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+
+                    row.appendChild(col);
+                }
+
+                carouselItem.appendChild(row);
+                carouselInner.appendChild(carouselItem);
+
+                // Add carousel indicators
+                const indicator = document.createElement('button');
+                indicator.type = 'button';
+                indicator.setAttribute('data-bs-target', `#${carouselId}`);
+                indicator.setAttribute('data-bs-slide-to', slideIndex);
+                indicator.setAttribute('aria-label', `Slide ${slideIndex + 1}`);
+                if (slideIndex === 0) {
+                    indicator.classList.add('active');
+                    indicator.setAttribute('aria-current', 'true');
+                }
+                carouselIndicators.appendChild(indicator);
+
+                slideIndex++;
+            }
+        }
+
+        // Determine the number of cards per slide based on screen width
+        function getCardsPerSlide() {
+            if (window.innerWidth >= 992) {
+                return 4; // Large screens
+            } else if (window.innerWidth >= 768) {
+                return 2; // Medium screens
+            } else if (window.innerWidth >= 576) {
+                return 2; // Small screens
+            } else {
+                return 1; // Extra small screens
+            }
+        }
+
+        // Initial carousel setup
+        function initializeCarousels() {
+            // Clear existing content
+            document.querySelectorAll('.carousel-inner').forEach(el => el.innerHTML = '');
+            document.querySelectorAll('.carousel-indicators').forEach(el => el.innerHTML = '');
+
+            // Create carousels
+            createCarouselItems('restaurantCarousel', '.carousel-indicators', cardsData);
+            createCarouselItems('restaurantCarousel2', '.carousel-indicators', cardsData2);
+        }
+
+        // Initialize carousels on page load
+        initializeCarousels();
+
+        // Rebuild carousels on window resize
+        window.addEventListener('resize', function () {
+            initializeCarousels();
+        });
+    </script>
+</body>
+</html>
