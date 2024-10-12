@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Slikoo - Details sur votre restaurant</title>
+    <title>Slikoo - Détails sur votre restaurant</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
     <link
@@ -28,7 +27,7 @@
             <div class="right-section">
               <div class="signup-div">
                 <div class="text-center">
-                  <h3>Details sur votre restaurant</h3>
+                  <h3>Détails sur votre restaurant</h3>
                   <p class="text-secondary p-text">
                     Lorem ipsum odor amet, consectetuer adipiscing elit. Donec
                     lacinia gravida interdum et sodales, tempor curae mus.
@@ -36,464 +35,66 @@
                 </div>
                 <div id="signupFormParticulier" class="signup-form">
                   <form>
-                    <!-- Question 1 -->
+                    <!-- Section 1 -->
                     <div class="my-3 section" data-section-id="1">
-                      <h5>Quelle est la spécialité du restaurant ?</h5>
+                      <h5>Proposez-vous des options pour les régimes alimentaires suivants ?</h5>
                       <div class="d-flex flex-row flex-wrap">
                         <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="FruitsDeMer"
-                            name="specialite"
-                            value="Fruits de mer"
-                          />
-                          <label for="FruitsDeMer">Fruits de mer</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="CuisineItalienne"
-                            name="specialite"
-                            value="Cuisine italienne"
-                          />
-                          <label for="CuisineItalienne">Cuisine italienne</label>
+                          <input type="checkbox" id="OptionVegetarien" name="optionsAlimentaires" value="Végétarien" onchange="toggleBackground(this)" />
+                          <label for="OptionVegetarien">Végétarien</label>
                         </div>
                         <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="CuisineAsiatique"
-                            name="specialite"
-                            value="Cuisine asiatique"
-                          />
-                          <label for="CuisineAsiatique">Cuisine asiatique</label>
+                          <input type="checkbox" id="OptionVegane" name="optionsAlimentaires" value="Végane" onchange="toggleBackground(this)" />
+                          <label for="OptionVegane">Végane</label>
                         </div>
                         <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Grillades"
-                            name="specialite"
-                            value="Grillades"
-                          />
-                          <label for="Grillades">Grillades</label>
+                          <input type="checkbox" id="OptionSansGluten" name="optionsAlimentaires" value="Sans gluten" onchange="toggleBackground(this)" />
+                          <label for="OptionSansGluten">Sans gluten</label>
+                        </div>
+                        <div class="checkbox-slikoo">
+                          <input type="checkbox" id="OptionSansLactose" name="optionsAlimentaires" value="Sans lactose" onchange="toggleBackground(this)" />
+                          <label for="OptionSansLactose">Sans lactose</label>
+                        </div>
+                        <div class="checkbox-slikoo">
+                          <input type="checkbox" id="OptionAucune" name="optionsAlimentaires" value="Aucune" onchange="toggleBackground(this)" />
+                          <label for="OptionAucune">Non, nous ne proposons pas d'options pour ces régimes</label>
                         </div>
                       </div>
                     </div>
-                    <!-- Question 2 -->
+                    <!-- Section 2 -->
                     <div class="my-3 section" data-section-id="2">
-                      <h5>Quels types de cuisine proposez-vous ?</h5>
+                      <h5>Quelle est votre marge de prix par personne ?</h5>
                       <div class="d-flex flex-row flex-wrap">
                         <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="CuisineTraditionnelle"
-                            name="typeCuisine"
-                            value="Cuisine traditionnelle"
-                          />
-                          <label for="CuisineTraditionnelle">Cuisine traditionnelle</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="CuisineFusion"
-                            name="typeCuisine"
-                            value="Cuisine fusion"
-                          />
-                          <label for="CuisineFusion">Cuisine fusion</label>
+                          <input type="radio" id="Budget1" name="budget" value="0-25" onchange="toggleRadioBackground(this)" />
+                          <label for="Budget1">0-25€</label>
                         </div>
                         <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="CuisineRapide"
-                            name="typeCuisine"
-                            value="Cuisine rapide"
-                          />
-                          <label for="CuisineRapide">Cuisine rapide</label>
+                          <input type="radio" id="Budget2" name="budget" value="25-50" onchange="toggleRadioBackground(this)" />
+                          <label for="Budget2">25-50€</label>
                         </div>
                         <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="CuisineFine"
-                            name="typeCuisine"
-                            value="Cuisine fine"
-                          />
-                          <label for="CuisineFine">Cuisine fine</label>
+                          <input type="radio" id="Budget3" name="budget" value="+50" onchange="toggleRadioBackground(this)" />
+                          <label for="Budget3">+50€</label>
                         </div>
                       </div>
                     </div>
-                    <!-- Question 3 -->
+                    <!-- Section 3 -->
                     <div class="my-3 section" data-section-id="3">
-                      <h5>Quels sont les ingrédients locaux que vous utilisez ?</h5>
-                      <div class="d-flex flex-row flex-wrap">
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="LegumesDeSaison"
-                            name="ingredientsLocaux"
-                            value="Légumes de saison"
-                          />
-                          <label for="LegumesDeSaison">Légumes de saison</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="ViandeProducteursLocaux"
-                            name="ingredientsLocaux"
-                            value="Viande de producteurs locaux"
-                          />
-                          <label for="ViandeProducteursLocaux">Viande de producteurs locaux</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="FromagesArtisanaux"
-                            name="ingredientsLocaux"
-                            value="Fromages artisanaux"
-                          />
-                          <label for="FromagesArtisanaux">Fromages artisanaux</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="TousLesIngredients"
-                            name="ingredientsLocaux"
-                            value="Tous les ingrédients"
-                          />
-                          <label for="TousLesIngredients">Tous les ingrédients</label>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Question 4 -->
-                    <div class="my-3 section" data-section-id="4">
-                      <h5>Avez-vous des options végétariennes ou véganes ?</h5>
-                      <div class="d-flex flex-row flex-wrap">
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="VegetariennesSeulement"
-                            name="optionsVegetariennes"
-                            value="Oui, végétariennes seulement"
-                          />
-                          <label for="VegetariennesSeulement">Oui, végétariennes seulement</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="VeganesEgalement"
-                            name="optionsVegetariennes"
-                            value="Oui, véganes également"
-                          />
-                          <label for="VeganesEgalement">Oui, véganes également</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="PasDOptions"
-                            name="optionsVegetariennes"
-                            value="Non, pas d'options"
-                          />
-                          <label for="PasDOptions">Non, pas d'options</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="PlatsSpeciaux"
-                            name="optionsVegetariennes"
-                            value="Oui, des plats spéciaux"
-                          />
-                          <label for="PlatsSpeciaux">Oui, des plats spéciaux</label>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Question 5 -->
-                    <div class="my-3 section" data-section-id="5">
-                      <h5>Comment décririez-vous l'ambiance du restaurant ?</h5>
-                      <div class="d-flex flex-row flex-wrap">
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Familiale"
-                            name="ambiance"
-                            value="Familiale et décontractée"
-                          />
-                          <label for="Familiale">Familiale et décontractée</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Elegante"
-                            name="ambiance"
-                            value="Élégante et romantique"
-                          />
-                          <label for="Elegante">Élégante et romantique</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Animee"
-                            name="ambiance"
-                            value="Animée et festive"
-                          />
-                          <label for="Animee">Animée et festive</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Intime"
-                            name="ambiance"
-                            value="Intime et tranquille"
-                          />
-                          <label for="Intime">Intime et tranquille</label>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Question 6 -->
-                    <div class="my-3 section" data-section-id="6">
-                      <h5>Quels sont les horaires d'ouverture ?</h5>
-                      <div class="d-flex flex-row flex-wrap">
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Horaires1"
-                            name="horaires"
-                            value="11h - 15h et 18h - 22h"
-                          />
-                          <label for="Horaires1">11h - 15h et 18h - 22h</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Horaires2"
-                            name="horaires"
-                            value="12h - 23h tous les jours"
-                          />
-                          <label for="Horaires2">12h - 23h tous les jours</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Horaires3"
-                            name="horaires"
-                            value="8h - 14h et 17h - 21h"
-                          />
-                          <label for="Horaires3">8h - 14h et 17h - 21h</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Horaires4"
-                            name="horaires"
-                            value="Varient selon les jours"
-                          />
-                          <label for="Horaires4">Varient selon les jours</label>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Question 7 -->
-                    <div class="my-3 section" data-section-id="7">
-                      <h5>Proposez-vous des plats du jour ou des menus spéciaux ?</h5>
-                      <div class="d-flex flex-row flex-wrap">
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="PlatsDuJour1"
-                            name="platsDuJour"
-                            value="Oui, chaque jour"
-                          />
-                          <label for="PlatsDuJour1">Oui, chaque jour</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="PlatsDuJour2"
-                            name="platsDuJour"
-                            value="Oui, mais seulement le week-end"
-                          />
-                          <label for="PlatsDuJour2">Oui, mais seulement le week-end</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="PlatsDuJour3"
-                            name="platsDuJour"
-                            value="Non, mais nous avons des promotions"
-                          />
-                          <label for="PlatsDuJour3">Non, mais nous avons des promotions</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="PlatsDuJour4"
-                            name="platsDuJour"
-                            value="Oui, pour des occasions spéciales"
-                          />
-                          <label for="PlatsDuJour4">Oui, pour des occasions spéciales</label>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Question 8 -->
-                    <div class="my-3 section" data-section-id="8">
-                      <h5>Y a-t-il des événements ou des soirées thématiques régulières ?</h5>
-                      <div class="d-flex flex-row flex-wrap">
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Evenements1"
-                            name="evenements"
-                            value="Oui, tous les vendredis"
-                          />
-                          <label for="Evenements1">Oui, tous les vendredis</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Evenements2"
-                            name="evenements"
-                            value="Oui, une fois par mois"
-                          />
-                          <label for="Evenements2">Oui, une fois par mois</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Evenements3"
-                            name="evenements"
-                            value="Non, pas pour le moment"
-                          />
-                          <label for="Evenements3">Non, pas pour le moment</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Evenements4"
-                            name="evenements"
-                            value="Oui, lors de fêtes spéciales"
-                          />
-                          <label for="Evenements4">Oui, lors de fêtes spéciales</label>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Question 9 -->
-                    <div class="my-3 section" data-section-id="9">
-                      <h5>Avez-vous une carte des vins ou des suggestions de boissons ?</h5>
-                      <div class="d-flex flex-row flex-wrap">
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Boissons1"
-                            name="boissons"
-                            value="Oui, une carte des vins complète"
-                          />
-                          <label for="Boissons1">Oui, une carte des vins complète</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Boissons2"
-                            name="boissons"
-                            value="Oui, des suggestions de cocktails"
-                          />
-                          <label for="Boissons2">Oui, des suggestions de cocktails</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Boissons3"
-                            name="boissons"
-                            value="Non, mais nous avons des boissons basiques"
-                          />
-                          <label for="Boissons3">Non, mais nous avons des boissons basiques</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="Boissons4"
-                            name="boissons"
-                            value="Oui, avec des recommandations du chef"
-                          />
-                          <label for="Boissons4">Oui, avec des recommandations du chef</label>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Question 10 -->
-                    <div class="my-3 section" data-section-id="10">
-                      <h5>Quel est votre budget pour les menus?</h5>
-                      <div class="d-flex flex-row flex-wrap">
-                        <div class="checkbox-slikoo">
-                          <input type="radio" id="Budget1" name="budget" value="0-25" />
-                          <label for="Budget1">0-25</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input type="radio" id="Budget2" name="budget" value="25-50" />
-                          <label for="Budget2">25-50</label>
-                        </div>
-                        <div class="checkbox-slikoo">
-                          <input type="radio" id="Budget3" name="budget" value="+50" />
-                          <label for="Budget3">+50</label>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Question 11 -->
-                    <div class="my-3 section" data-section-id="11">
-                      <h5>Proposez-vous des plats sans gluten et sans lactose ?</h5>
-                      <div class="d-flex flex-row flex-wrap">
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="SansGlutenLactoseOui"
-                            name="sansGlutenLactose"
-                            value="Oui"
-                          />
-                          <label for="SansGlutenLactoseOui">Oui</label>
-                        </div>
-
-                        <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="SansGlutenLactoseNon"
-                            name="sansGlutenLactose"
-                            value="Non"
-                          />
-                          <label for="SansGlutenLactoseNon">Non</label>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Question 12 -->
-                    <div class="my-3 section" data-section-id="12">
                       <h5>Est-ce que l'établissement est accessible aux personnes à mobilité réduite ?</h5>
                       <div class="d-flex flex-row flex-wrap">
                         <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="AccessibiliteOui"
-                            name="accessibilite"
-                            value="Oui"
-                          />
+                          <input type="radio" id="AccessibiliteOui" name="accessibilite" value="Oui" onchange="toggleRadioBackground(this)" />
                           <label for="AccessibiliteOui">Oui</label>
                         </div>
-
                         <div class="checkbox-slikoo">
-                          <input
-                            type="radio"
-                            id="AccessibiliteNon"
-                            name="accessibilite"
-                            value="Non"
-                          />
+                          <input type="radio" id="AccessibiliteNon" name="accessibilite" value="Non" onchange="toggleRadioBackground(this)" />
                           <label for="AccessibiliteNon">Non</label>
                         </div>
                       </div>
                     </div>
                     <button id="buttonSubmit" type="submit" class="slikoo-button">
-                      Soumettre
+                      Confirmer
                     </button>
                   </form>
                 </div>
@@ -501,25 +102,34 @@
             </div>
           </div>
         </div>
-      </div> <!-- Progress Bar Div -->
-      <div id="progressBar" class="progress-bar-div">
-        <span class="progress-bar-span">0%</span>
-        <svg
-          width="100"
-          height="100"
-          viewBox="0 0 100 100"
-          class="circular-progress"
-        >
-          <circle class="bg"></circle>
-          <circle class="fg"></circle>
-        </svg>
+        <!-- Progress Bar Div -->
+        <div id="progressBar" class="progress-bar-div">
+          <span class="progress-bar-span">0%</span>
+          <svg
+            width="100"
+            height="100"
+            viewBox="0 0 100 100"
+            class="circular-progress"
+          >
+            <circle class="bg" cx="50" cy="50" r="45"></circle>
+            <circle class="fg" cx="50" cy="50" r="45"></circle>
+          </svg>
+        </div>
       </div>
     </div>
 
     <!-- JAVASCRIPT FILES -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        // **Function Definitions**
+        // Toggle background for checkboxes
+        function toggleBackground(checkbox) {
+          const container = checkbox.parentElement;
+          if (checkbox.checked) {
+            container.classList.add('checked');
+          } else {
+            container.classList.remove('checked');
+          }
+        }
 
         // Toggle background for radio buttons
         function toggleRadioBackground(radio) {
@@ -539,23 +149,12 @@
           }
         }
 
-        // **Progress Bar and Form Completion Tracking**
-
-        // Object to track the completion status of each section
+        // Progress Bar and Form Completion Tracking
         const formCompletion = {
-          totalSections: 12,
+          totalSections: 3,
           sectionsCompleted: {
-            specialite: false,
-            typeCuisine: false,
-            ingredientsLocaux: false,
-            optionsVegetariennes: false,
-            ambiance: false,
-            horaires: false,
-            platsDuJour: false,
-            evenements: false,
-            boissons: false,
+            optionsAlimentaires: false,
             budget: false,
-            sansGlutenLactose: false,
             accessibilite: false,
           },
         };
@@ -582,8 +181,23 @@
           }
         }
 
-        // **Section Check Functions and Event Listeners**
+        // Check 'optionsAlimentaires' section
+        function checkOptionsAlimentaires() {
+          const checkboxes = document.querySelectorAll('input[name="optionsAlimentaires"]');
+          const isChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
+          formCompletion.sectionsCompleted.optionsAlimentaires = isChecked;
+          updateProgressBar();
+        }
 
+        const optionsAlimentairesCheckboxes = document.querySelectorAll('input[name="optionsAlimentaires"]');
+        optionsAlimentairesCheckboxes.forEach((checkbox) => {
+          checkbox.addEventListener('change', () => {
+            toggleBackground(checkbox);
+            checkOptionsAlimentaires();
+          });
+        });
+
+        // Function to add radio button listeners and check section
         function addRadioListeners(name) {
           const radios = document.querySelectorAll(`input[name="${name}"]`);
           radios.forEach((radio) => {
@@ -601,28 +215,21 @@
           updateProgressBar();
         }
 
-        // Add listeners and initial checks for all sections
-        const sectionNames = [
-          'specialite',
-          'typeCuisine',
-          'ingredientsLocaux',
-          'optionsVegetariennes',
-          'ambiance',
-          'horaires',
-          'platsDuJour',
-          'evenements',
-          'boissons',
+        // Add listeners and initial checks for radio button sections
+        const radioSectionNames = [
           'budget',
-          'sansGlutenLactose',
           'accessibilite',
         ];
 
-        sectionNames.forEach((name) => {
+        radioSectionNames.forEach((name) => {
           addRadioListeners(name);
           checkSection(name);
         });
 
-        // **Initial Check on Page Load**
+        // Initial check for optionsAlimentaires
+        checkOptionsAlimentaires();
+
+        // Initial update of the progress bar
         updateProgressBar();
       });
     </script>

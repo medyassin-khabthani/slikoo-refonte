@@ -11,6 +11,27 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
   </head>
   <body>
+    <style>
+            .number-scale {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .number-scale .number-option {
+        width: 40px;
+        height: 40px;
+        border: 1px solid #e61c4c;
+        border-radius: 50%;
+        margin: 5px;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+        color: #e61c4c;
+      }
+      .number-scale .number-option.active {
+        background-color: #e61c4c;
+        color: #fff;
+      }
+    </style>
     <div id="constraintFixed" class="constraint-fixed">
 
   
@@ -25,28 +46,6 @@
               </div>
               <div id="signupFormParticulier" class="signup-form">
                 <form>
-                <div class="my-3 section" data-section-id="1">
-                  <h5>Quels types de cuisine préférez-vous ?</h5>
-                  <div class="d-flex flex-row flex-wrap">
-                    <div class="checkbox-slikoo">
-                      <input type="checkbox" id="Italienne" name="Italienne" onchange="toggleBackground(this)" />
-                      <label for="Italienne">Italienne</label>
-                    </div>
-                  
-                    <div class="checkbox-slikoo">
-                      <input type="checkbox" id="Asiatique" name="Asiatique" onchange="toggleBackground(this)" />
-                      <label for="Asiatique">Asiatique</label>
-                    </div>
-                    <div class="checkbox-slikoo">
-                      <input type="checkbox" id="Vegetarienne" name="Végetarienne" onchange="toggleBackground(this)" />
-                      <label for="Vegetarienne">Végetarienne</label>
-                    </div>
-                    <div class="checkbox-slikoo">
-                      <input type="checkbox" id="noResponse" name="Je préfère ne pas répondre" onchange="toggleBackground(this)" />
-                      <label for="noResponse">Je préfère ne pas répondre</label>
-                    </div>
-                  </div>
-                </div>
                 <div class="my-3 section" data-section-id="2">
                   <h5>Quel est votre âge ?</h5>
                   <div class="d-flex flex-row flex-wrap">
@@ -389,6 +388,110 @@
                   </div>
                 </div>
                 <div class="my-3 section" data-section-id="10">
+                  <h5>Vous êtes sérieux?</h5>
+                  <div class="number-scale">
+                    <div class="number-option" data-value="1">1</div>
+                    <div class="number-option" data-value="2">2</div>
+                    <div class="number-option" data-value="3">3</div>
+                    <div class="number-option" data-value="4">4</div>
+                    <div class="number-option" data-value="5">5</div>
+                    <div class="number-option" data-value="6">6</div>
+                    <div class="number-option" data-value="7">7</div>
+                    <div class="number-option" data-value="8">8</div>
+                    <div class="number-option" data-value="9">9</div>
+                    <div class="number-option" data-value="10">10</div>
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="11">
+                  <h5>Vous vous trouvez drôle?</h5>
+                  <div class="number-scale">
+                    <div class="number-option" data-value="1">1</div>
+                    <div class="number-option" data-value="2">2</div>
+                    <div class="number-option" data-value="3">3</div>
+                    <div class="number-option" data-value="4">4</div>
+                    <div class="number-option" data-value="5">5</div>
+                    <div class="number-option" data-value="6">6</div>
+                    <div class="number-option" data-value="7">7</div>
+                    <div class="number-option" data-value="8">8</div>
+                    <div class="number-option" data-value="9">9</div>
+                    <div class="number-option" data-value="10">10</div>
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="12">
+                  <h5>Vous aimez les gens intellectuels?</h5>
+                  <div class="number-scale">
+                    <div class="number-option" data-value="1">1</div>
+                    <div class="number-option" data-value="2">2</div>
+                    <div class="number-option" data-value="3">3</div>
+                    <div class="number-option" data-value="4">4</div>
+                    <div class="number-option" data-value="5">5</div>
+                    <div class="number-option" data-value="6">6</div>
+                    <div class="number-option" data-value="7">7</div>
+                    <div class="number-option" data-value="8">8</div>
+                    <div class="number-option" data-value="9">9</div>
+                    <div class="number-option" data-value="10">10</div>
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="13">
+                  <h5>Êtes vous sportif(ve)?</h5>
+                  <div class="number-scale">
+                    <!-- Generate numbers from 1 to 10 -->
+                    <div class="number-option" data-value="1">1</div>
+                    <div class="number-option" data-value="2">2</div>
+                    <div class="number-option" data-value="3">3</div>
+                    <div class="number-option" data-value="4">4</div>
+                    <div class="number-option" data-value="5">5</div>
+                    <div class="number-option" data-value="6">6</div>
+                    <div class="number-option" data-value="7">7</div>
+                    <div class="number-option" data-value="8">8</div>
+                    <div class="number-option" data-value="9">9</div>
+                    <div class="number-option" data-value="10">10</div>
+                    <!-- Repeat for numbers 2 to 10 -->
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="14">
+                  <h5>Êtes vous religieux?</h5>
+                  <div class="d-flex flex-row flex-wrap">
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Chretien" name="religion" value="Chrétien" onchange="toggleRadioBackground(this)" />
+                      <label for="Chretien">Chrétien</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Musulman" name="religion" value="Musulman" onchange="toggleRadioBackground(this)" />
+                      <label for="Musulman">Musulman</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Juif" name="religion" value="Juif" onchange="toggleRadioBackground(this)" />
+                      <label for="Juif">Juif</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Boudhiste" name="religion" value="Boudhiste" onchange="toggleRadioBackground(this)" />
+                      <label for="Boudhiste">Boudhiste</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Autre" name="religion" value="Autre" onchange="toggleRadioBackground(this)" />
+                      <label for="Autre">Autre</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="15">
+                  <h5>Quel est votre budget pour les restaurants?</h5>
+                  <div class="d-flex flex-row flex-wrap">
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Budget1" name="budget" value="0-25" onchange="toggleRadioBackground(this)" />
+                      <label for="Budget1">0-25€</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Budget2" name="budget" value="25-50" onchange="toggleRadioBackground(this)" />
+                      <label for="Budget2">25-50€</label>
+                    </div>
+                    <div class="checkbox-slikoo">
+                      <input type="radio" id="Budget3" name="budget" value="+50" onchange="toggleRadioBackground(this)" />
+                      <label for="Budget3">+50€</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="my-3 section" data-section-id="10">
                   <h5>Quels réseaux sociaux utilisez-vous ?</h5>
                 <div class="row">
                   <div class="col-lg-6">
@@ -494,20 +597,25 @@
 
   // Object to track the completion status of each section
   const formCompletion = {
-    totalSections: 10,
-    sectionsCompleted: {
-      typesCuisine: false,
-      age: false,
-      fumeur: false,
-      alcool: false,
-      allergiesAlimentaires: false,
-      centresInteret: false,
-      langues: false,
-      genreRecherche: false,
-      vousCherchez: false,
-      socialMedia: false,
-    },
-  };
+        totalSections: 15,
+        sectionsCompleted: {
+          age: false,
+          fumeur: false,
+          alcool: false,
+          allergiesAlimentaires: false,
+          centresInteret: false,
+          langues: false,
+          genreRecherche: false,
+          vousCherchez: false,
+          serieux: false,
+          drole: false,
+          intellectuels: false,
+          sportif: false,
+          religieux: false,
+          budget: false,
+          socialMedia: false,
+        },
+      };
 
   // Function to update the progress bar
   function updateProgressBar() {
@@ -529,24 +637,6 @@
 
   // **Section Check Functions and Event Listeners**
 
-  // 1. Check 'Types de cuisine' section
-  function checkTypesCuisine() {
-    const checkboxes = document.querySelectorAll(
-      'input[name="Italienne"], input[name="Asiatique"], input[name="Végetarienne"], input[name="Je préfère ne pas répondre"]'
-    );
-    const isChecked = Array.from(checkboxes).some((checkbox) => checkbox.checked);
-    formCompletion.sectionsCompleted.typesCuisine = isChecked;
-    updateProgressBar();
-  }
-  const typesCuisineCheckboxes = document.querySelectorAll(
-    'input[name="Italienne"], input[name="Asiatique"], input[name="Végetarienne"], input[name="Je préfère ne pas répondre"]'
-  );
-  typesCuisineCheckboxes.forEach((checkbox) => {
-    checkbox.addEventListener('change', () => {
-      toggleBackground(checkbox);
-      checkTypesCuisine();
-    });
-  });
 
   // 2. Check 'Âge' section
   function checkAge() {
@@ -838,8 +928,97 @@
       checkVousCherchez();
     });
   });
+// 10.  Check 'serieux' section
+  function checkSerieux() {
+        const selectedOption = document.querySelector('div.section[data-section-id="10"] .number-option.active');
+        formCompletion.sectionsCompleted.serieux = !!selectedOption;
+        updateProgressBar();
+      }
+      const serieuxOptions = document.querySelectorAll('div.section[data-section-id="10"] .number-option');
+      serieuxOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+          serieuxOptions.forEach((opt) => opt.classList.remove('active'));
+          option.classList.add('active');
+          checkSerieux();
+        });
+      });
 
-  // 10. Check 'Social Media' section
+      // 11. Check 'Vous vous trouvez drôle?' section
+      function checkDrole() {
+        const selectedOption = document.querySelector('div.section[data-section-id="11"] .number-option.active');
+        formCompletion.sectionsCompleted.drole = !!selectedOption;
+        updateProgressBar();
+      }
+      const droleOptions = document.querySelectorAll('div.section[data-section-id="11"] .number-option');
+      droleOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+          droleOptions.forEach((opt) => opt.classList.remove('active'));
+          option.classList.add('active');
+          checkDrole();
+        });
+      });
+
+      // 12. Check 'Vous aimez les gens intellectuels?' section
+      function checkIntellectuels() {
+        const selectedOption = document.querySelector('div.section[data-section-id="12"] .number-option.active');
+        formCompletion.sectionsCompleted.intellectuels = !!selectedOption;
+        updateProgressBar();
+      }
+      const intellectuelsOptions = document.querySelectorAll('div.section[data-section-id="12"] .number-option');
+      intellectuelsOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+          intellectuelsOptions.forEach((opt) => opt.classList.remove('active'));
+          option.classList.add('active');
+          checkIntellectuels();
+        });
+      });
+
+      // 13. Check 'Êtes vous sportif(ve)?' section
+      function checkSportif() {
+        const selectedOption = document.querySelector('div.section[data-section-id="13"] .number-option.active');
+        formCompletion.sectionsCompleted.sportif = !!selectedOption;
+        updateProgressBar();
+      }
+      const sportifOptions = document.querySelectorAll('div.section[data-section-id="13"] .number-option');
+      sportifOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+          sportifOptions.forEach((opt) => opt.classList.remove('active'));
+          option.classList.add('active');
+          checkSportif();
+        });
+      });
+
+      // 14. Check 'Êtes vous religieux?' section
+      function checkReligieux() {
+        const radios = document.querySelectorAll('input[name="religion"]');
+        const isChecked = Array.from(radios).some((radio) => radio.checked);
+        formCompletion.sectionsCompleted.religieux = isChecked;
+        updateProgressBar();
+      }
+      const religieuxRadios = document.querySelectorAll('input[name="religion"]');
+      religieuxRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+          toggleRadioBackground(radio);
+          checkReligieux();
+        });
+      });
+
+      // 15. Check 'Budget' section
+      function checkBudget() {
+        const radios = document.querySelectorAll('input[name="budget"]');
+        const isChecked = Array.from(radios).some((radio) => radio.checked);
+        formCompletion.sectionsCompleted.budget = isChecked;
+        updateProgressBar();
+      }
+      const budgetRadios = document.querySelectorAll('input[name="budget"]');
+      budgetRadios.forEach((radio) => {
+        radio.addEventListener('change', () => {
+          toggleRadioBackground(radio);
+          checkBudget();
+        });
+      });
+
+  // 16. Check 'Social Media' section
   function checkSocialMedia() {
     const inputs = document.querySelectorAll('.social-input');
     const isFilled = Array.from(inputs).some((input) => input.value.trim() !== '');
@@ -869,7 +1048,6 @@
   });
 
   // **Initial Check on Page Load**
-  checkTypesCuisine();
   checkAge();
   checkFumeur();
   checkAlcool();
@@ -879,6 +1057,12 @@
   checkGenreRecherche();
   checkVousCherchez();
   checkSocialMedia();
+  checkSerieux();
+      checkDrole();
+      checkIntellectuels();
+      checkSportif();
+      checkReligieux();
+      checkBudget();
 });
 
 </script>
